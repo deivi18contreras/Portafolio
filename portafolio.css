@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(12deg, #f3060636, #043131, #faccbe);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
+
+.uno {
+    text-align: center;
+    color: white;
+    margin-top: 35px;
+    font-size: 36px;
+}
+
+.dos {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 30px;
+
+}
+
+.dos0 {
+    font-size: 28px;
+    color: #00ffcc;
+}
+
+.dos1,
+.dos2,
+.dos3 {
+    cursor: pointer;
+    background-color: #00ffcc;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.dos1:hover,
+.dos2:hover,
+.dos3:hover {
+    background-color: #00ffaa;
+    transform: scale(1.05);
+}
+
+.parteDos1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 35px;
+    padding: 20px;
+    background: rgba(0, 255, 204, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+}
+
+.Perfil {
+    width: 200px;
+    height: 200px;
+    background-image: url('./avatar.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #00ffcc;
+}
+
+
+ul {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.parteTres {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+#one,
+#two,
+#three {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.proyec1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 100px;
+    padding: 20px;
+    background: rgba(0, 255, 204, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+.imgpr {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #00ffcc;
+    margin-top: 15px;
+}
+
+.bot1 {
+    background-color: #00ffcc;
+    color: #000;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00ffcc44;
+    cursor: pointer;
+}
+
+.bot1:hover {
+    transform: scale(1.05);
+    background-color: #00ffaa;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+.proyec2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    padding: 20px;
+    background: rgba(0, 255, 204, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+.imgpr2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #00ffcc;
+    margin-top: 15px;
+}
+
+.bot2 {
+    background-color: #00ffcc;
+    color: #000;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00ffcc44;
+    cursor: pointer;
+}
+
+.bot2:hover {
+    transform: scale(1.05);
+    background-color: #00ffaa;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+.proyec3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    margin-right: 100px;
+    padding: 20px;
+    background: rgba(0, 255, 204, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+.imgpr3 {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #00ffcc;
+    margin-top: 15px;
+}
+
+.bot3 {
+    background-color: #00ffcc;
+    color: #000;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00ffcc44;
+    cursor: pointer;
+}
+
+.bot3:hover {
+    transform: scale(1.05);
+    background-color: #00ffaa;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+
+.iconos {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px
+}
+
+.iconos a {
+    font-size: 28px;
+    margin: 0 15px;
+    color: #00ffcc;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.iconos a:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+
+
+@media (min-width: 300px) and (max-width: 499px) {
+    ul {
+        margin-top: 20px;
+    }
+
+    .parteTres {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .proyec1,
+    .proyec2,
+    .proyec3 {
+        width: 95%;
+        margin: 0;
+    }
+
+    .imgpr,
+    .imgpr2,
+    .imgpr3 {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+    }
+
+    .dos {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .parteDos1 {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .Perfil {
+        width: 100%;
+    }
+
+    .uno {
+        font-size: 28px;
+    }
+
+    .dos0 {
+        font-size: 20px;
+    }
+
+    .bot1,
+    .bot2,
+    .bot3 {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+    ul {
+        margin-top: 20px;
+    }
+
+    .parteTres {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .proyec1,
+    .proyec2,
+    .proyec3 {
+        margin: 0;
+        width: 90%;
+    }
+
+    .dos {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .parteDos1 {
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+
+
+
+    .dos {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+.dos0{
+    font-size: 15px;
+}
+
+    .botones {
+        display: flex;
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    .botones button {
+        white-space: nowrap;
+    }
+
+    .parteTres {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .proyec1,
+    .proyec2,
+    .proyec3 {
+        margin-left: 0;
+        margin-right: 0;
+        width: 70%;
+    }
+}

@@ -1,0 +1,1031 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #202020;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.principal {
+  background: #202020;
+}
+
+.parteuno {
+  background: #272727;
+  color: white;
+  font-size: 14px;
+}
+
+.texto1 {
+  margin-left: 100px;
+}
+
+.uno {
+  display: flex;
+  gap: 35px;
+  justify-content: right;
+  margin-right: 100px;
+
+}
+
+.biker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 15px;
+
+}
+
+.logo {
+  font-size: 45px;
+}
+
+.texto2 {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.partedos {
+  background: #1b1b1b;
+  color: white;
+  margin-left: 100px;
+  margin-right: 100px;
+
+}
+
+.ab {
+  display: flex;
+  gap: 25px;
+  margin-left: 15px;
+}
+
+.imagenes {
+  display: flex;
+  height: 400px;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+
+.new {
+  width: 800px;
+  background: url('./Imagenes/New.jpeg') center/cover no-repeat;
+}
+
+.cross {
+  background: url('./Imagenes/cross.jpeg') center/cover no-repeat;
+  margin-right: 100px;
+  width: 600px;
+}
+
+
+.h1 {
+  font-size: 70px;
+  position: relative;
+  left: 30px;
+  top: 160px;
+}
+
+.h2 {
+  font-size: 50px;
+  position: relative;
+  left: 30px;
+  top: 120px;
+}
+
+.descripcion1 {
+  font-size: 18px;
+  color: white;
+  position: relative;
+  left: 30px;
+  top: 120px;
+}
+
+.new:hover,
+.cross:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.d {
+  font-size: 38px;
+  position: relative;
+  left: 30px;
+  top: 200px;
+
+}
+
+.e {
+  font-size: 100px;
+  font-weight: bold;
+  position: relative;
+  left: 30px;
+  top: 160px;
+
+
+}
+
+.e span {
+  color: red;
+  font-size: 30px;
+}
+
+.partetres {
+  background-color: rgb(21, 21, 21);
+  color: white;
+  font-size: 14px;
+}
+
+.imagenes2 {
+  display: flex;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.jackets {
+  background-image: url('./Imagenes/chaqueta.jpg');
+  position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.motorcycle {
+  background-image: url('./Imagenes/tyres.jpg');
+  position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 5px;
+
+}
+
+.exhaust {
+  background-image: url('./Imagenes/exosto.webp');
+  position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+
+.raci {
+  position: absolute;
+  left: 30px;
+  bottom: 140px;
+  font-size: 40px;
+}
+
+.raci2 {
+  position: relative;
+  left: -110px;
+  bottom: 100px;
+  font-size: 40px;
+}
+
+.tyres {
+  position: absolute;
+  left: 30px;
+  bottom: 140px;
+  font-size: 40px;
+
+}
+
+.tyres2 {
+  position: relative;
+  left: -125px;
+  bottom: 100px;
+  font-size: 40px;
+}
+
+.exosto {
+  position: absolute;
+  left: 30px;
+  bottom: 140px;
+  font-size: 40px;
+}
+
+.exosto2 {
+  position: relative;
+  left: -105px;
+  bottom: 100px;
+  font-size: 40px;
+}
+
+.jackets:hover,
+.motorcycle:hover,
+.exhaust:hover {
+  transform: translateY(-5px);
+}
+
+.acceso,
+.motor,
+.syst {
+  flex: 1;
+}
+
+.dos {
+  color: white;
+  margin-left: 100px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.tres {
+  color: white;
+  margin-left: 100px;
+  font-size: 20px;
+}
+
+.imagenes3 {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-right: 100px;
+  gap: 30px;
+
+
+}
+
+
+.producto {
+  margin-left: 100px;
+  margin-bottom: 50px;
+  
+}
+
+.ex {
+  height: 200px;
+  width: 200px;
+  margin: 15px 15px;
+}
+
+.cas {
+  height: 200px;
+  margin: 15px 15px;
+}
+
+.llan {
+  width: 200px;
+  height: 200px;
+  margin: 15px 15px;
+}
+
+.bota {
+  height: 200px;
+  margin: 15px 15px;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+
+}
+
+.la {
+  background-color: #dc3745;
+  color: white;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+.producto1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+  height: 285px;
+
+}
+
+.bota {
+  height: 200px;
+  margin: 15px 15px;
+}
+
+.llan {
+  width: 200px;
+  height: 200px;
+  margin: 15px 15px
+}
+
+.le {
+  background-color: #dc3745;
+  color: white;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.producto2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+  height: 285px;
+}
+
+.llan {
+  width: 200px;
+  height: 200px;
+  margin: 15px 15px
+}
+
+.li {
+  background-color: #dc3745;
+  color: white;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+
+.producto3:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+  height: 285px;
+}
+
+.cas {
+  height: 200px;
+  margin: 15px 15px;
+}
+
+.lo {
+  background-color: #dc3745;
+  color: white;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.red {
+  color: red;
+  cursor: pointer;
+}
+
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+  align-items: center;
+}
+
+.detalle {
+  color: white;
+  cursor: pointer;
+}
+
+.descripcion {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.precio {
+  font-size: 15px;
+  margin-left: 10px;
+  word-spacing: 10px;
+}
+
+.imagenes4 {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  justify-content: space-between;
+  margin-right: 100px;
+  gap: 30px;
+  margin-top: 30px;
+
+}
+
+.productos {
+  margin-left: 100px;
+  margin-bottom: 60px;
+
+}
+
+.productos:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+  height: 285px;
+}
+
+.productos1 {
+  margin-bottom: 50px;
+}
+
+.productos1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+  height: 285px;
+}
+
+.productos2 {
+  margin-bottom: 50px;
+}
+
+.productos2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+  height: 285px;
+}
+
+.productos3 {
+  margin-bottom: 50px;
+}
+
+.productos3:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 2px 8px rgba(235, 4, 4, 0.5);
+  height: 285px;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background-color: #1c1c1c;
+  justify-content: space-between;
+  color: white;
+  font-family: sans-serif;
+  font-size: 10px;
+
+
+}
+
+.info,
+.why,
+.My,
+.Con,
+.Newss {
+  margin-top: 20px;
+}
+
+.info {
+  margin-left: 100px;
+}
+
+.Newss {
+  margin-right: 100px;
+}
+
+.pay {
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+
+.paypal {
+  width: 60px;
+  border-radius: 5px;
+}
+
+@media (min-width: 300px) and (max-width: 499px) {
+  .parteuno {
+    width: 100%;
+  }
+
+  .texto1 {
+    margin-left: 5px;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .uno {
+    justify-content: left;
+    margin-left: 5px;
+    font-size: 10px;
+
+  }
+
+  .biker {
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 10px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .texto2 {
+    margin-left: 5px;
+  }
+
+  .h1 {
+    font-size: 40px;
+    margin-left: 5px;
+    margin-top: 60px;
+    position: static;
+
+  }
+
+  .h2 {
+    font-size: 30px;
+    margin-left: 5px;
+    position: static;
+  }
+
+  .descripcion1 {
+    font-size: 15px;
+    position: static;
+  }
+
+  .d {
+    font-size: 30px;
+    margin-left: 5px;
+    margin-top: 60px;
+    position: static;
+  }
+
+  .e {
+    font-size: 50px;
+    margin-left: 5px;
+    position: static;
+
+  }
+
+  .e span {
+    font-size: 30px;
+  }
+
+  .partedos {
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  .ab {
+    flex-wrap: wrap;
+    font-size: 10px;
+  }
+
+  .imagenes {
+    margin-left: 0;
+    flex-direction: column;
+  }
+
+  .new {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+    height: 200px;
+  }
+
+  .cross {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+    height: 200px;
+  }
+
+  .imagenes2 {
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .imagenes3 {
+    margin-left: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+  .imagenes4{
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 30px;
+  }
+  .productos{
+    margin-left: 0px;
+  }
+
+  .raci {
+    font-size: 30px;
+  }
+
+  .raci2 {
+    font-size: 30px;
+    left: -50px;
+  }
+
+  .tyres {
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .tyres2 {
+    font-size: 30px;
+    left: -65px;
+  }
+
+  .exosto {
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .exosto2 {
+    font-size: 30px;
+    left: -50px;
+  }
+
+  
+
+  .dos {
+    font-size: 15px;
+  }
+
+  .producto {
+    justify-content: center;
+    margin-left: 0px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    margin-left: 5px;
+  }
+.info{
+  margin-left: 5px;
+}
+.pay{
+  margin-top: 12px;
+}
+  .imagenes3,
+  .imagenes4 {
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .producto,
+  .productos,
+  .productos1,
+  .productos2,
+  .productos3 {
+    margin-left: 5px;
+    margin-right: 5px;
+  
+  }
+  .ex,
+  .cas,
+  .llan,
+  .bota {
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .descripcion,
+  .precio,
+  .detalle,
+  .botones {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .botones {
+    flex-direction: column;
+  }
+
+}
+/* parte dos */
+
+@media (min-width: 500px) and (max-width: 700px) {
+  .parteuno {
+    width: 100%;
+  }
+
+  .texto1 {
+    margin-left: 5px;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .uno {
+    justify-content: left;
+    margin-left: 5px;
+    font-size: 10px;
+
+  }
+
+  .biker {
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 10px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .texto2 {
+    margin-left: 5px;
+  }
+
+  .h1 {
+    font-size: 40px;
+    margin-left: 5px;
+    margin-top: 60px;
+    position: static;
+
+  }
+
+  .h2 {
+    font-size: 30px;
+    margin-left: 5px;
+    position: static;
+  }
+
+  .descripcion1 {
+    font-size: 15px;
+    position: static;
+  }
+
+  .d {
+    font-size: 30px;
+    margin-left: 5px;
+    margin-top: 60px;
+    position: static;
+  }
+
+  .e {
+    font-size: 50px;
+    margin-left: 5px;
+    position: static;
+
+  }
+
+  .e span {
+    font-size: 30px;
+  }
+
+  .partedos {
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  .ab {
+    flex-wrap: wrap;
+    font-size: 10px;
+  }
+
+  .imagenes {
+    margin-left: 0;
+    flex-direction: column;
+  }
+
+  .new {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+    height: 200px;
+  }
+
+  .cross {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+    height: 200px;
+  }
+
+  .imagenes2 {
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .imagenes3 {
+    margin-left: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+  .imagenes4{
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 30px;
+  }
+  .productos{
+    margin-left: 0px;
+  }
+
+  .raci {
+    font-size: 30px;
+  }
+
+  .raci2 {
+    font-size: 30px;
+    left: -50px;
+  }
+
+  .tyres {
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .tyres2 {
+    font-size: 30px;
+    left: -65px;
+  }
+
+  .exosto {
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .exosto2 {
+    font-size: 30px;
+    left: -50px;
+  }
+
+  
+
+  .dos {
+    font-size: 15px;
+  }
+
+  .producto {
+    justify-content: center;
+    margin-left: 0px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    margin-left: 5px;
+  }
+.info{
+  margin-left: 5px;
+}
+.pay{
+  margin-top: 12px;
+}
+  .imagenes3,
+  .imagenes4 {
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .producto,
+  .productos,
+  .productos1,
+  .productos2,
+  .productos3 {
+    margin-left: 5px;
+    margin-right: 5px;
+  
+  }
+  .ex,
+  .cas,
+  .llan,
+  .bota {
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .descripcion,
+  .precio,
+  .detalle,
+  .botones {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .botones {
+    flex-direction: column;
+  }
+
+}
+
+/* parte tres */
+@media (min-width: 701px) and (max-width: 1100px) {
+   .texto1 {
+    margin-left: 35px;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .uno {
+    justify-content: right;
+    margin-right: 35px;
+  
+  }
+   .biker {
+    align-items: center;
+    margin-left: 35px;
+    margin-right: 35px;
+    
+  }
+  .texto2 {
+    margin-left: 5px;
+  }
+  .partedos {
+    margin-left: 0px;
+    width: 100%;
+  }
+   .imagenes {
+    margin-left: 5px;
+  }
+   
+  .imagenes2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+  
+   .raci {
+    font-size: 30px;
+  }
+
+  .raci2 {
+    font-size: 30px;
+    left: 0px;
+  }
+
+  .tyres {
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .tyres2 {
+    font-size: 30px;
+    left: 0px;
+  }
+
+  .exosto {
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .exosto2 {
+    font-size: 30px;
+    left: 0px;
+  }
+.imagenes3{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 30px;
+  margin-right: 30px;
+  
+}
+
+.imagenes4{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 30px;
+  margin-right: 30px;
+  
+    
+}
+  .ex,
+.cas,
+.llan,
+.bota {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  .producto, .productos{
+    margin-left: 0;
+  }
+  
+  footer{
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-around;
+    gap: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .info{
+    margin-left: 0px;
+
+  }
+  .pay{
+    margin-left: 0;
+  }
+}

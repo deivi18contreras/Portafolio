@@ -1,0 +1,575 @@
+body {
+    background-color: #cdcdcd;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.principal {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Parte Uno  */
+.parteUno {
+    background: url('./Imagenes/imagenuno.jpeg') center/cover no-repeat;
+    color: white;
+    height: 400px;
+    padding: 40px;
+    position: relative;
+}
+
+.titulo1 {
+    font-size: 2.5rem;
+    margin: 20px 0 0 30px;
+}
+
+.parrafo1 {
+    font-size: 1.2rem;
+    margin: 10px 30px;
+}
+
+.boton {
+    color: white;
+    background-color: #1c99d1;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    margin-top: 150px;
+    margin-left: 40px;
+    font-size: 0.9rem;
+}
+
+.parrafo2 {
+    position: absolute;
+    bottom: 110px;
+    right: 35px;
+    font-size: 0.9rem;
+}
+
+.tres {
+    color: #1c99d1;
+    text-decoration: none;
+}
+
+/* Parte Dos  */
+.parteDos {
+    box-shadow: 5px 5px 10px rgba(120, 119, 119, 0.449);
+    background-color: white;
+    margin-top: 2px;
+    position: relative;
+}
+
+.caja {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cajauno {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.cajados {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.de{
+    border-left: solid 1px;
+    border-right: solid 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 40px;
+    align-items: center;
+}
+.da{
+    border-left: solid 1px;
+    padding-left: 15px;
+    height: 40px;
+    align-items: center;
+}
+
+.do{
+    border-right: solid 1px;
+    padding-right: 15px;
+    height: 40px;
+    justify-content: center; 
+}
+.du{
+    border-right: solid 1px;
+    padding-right: 15px;
+    height: 40px;
+    justify-content: center;
+}
+.dd{
+    border-right: solid 1px;
+    padding-right: 15px;
+    height: 40px;
+    justify-content: center;
+}
+.linea {
+    width: 2px;
+    height: 40px;
+    background-color: rgba(193, 193, 193, 0.525);
+}
+
+.casa,
+.persona,
+.hoja,
+.camara,
+.nube,
+.mapa {
+    color: #3498db;
+    margin-left: 8px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Parte Tres  */
+.cajass {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 5px;
+
+}
+
+.primera,
+.tercera {
+    padding: 30px;
+    background-color: #f4f4f4;
+
+}
+
+.segunda {
+    padding: 30px;
+    background-color: #f1f1f1;
+}
+
+
+.linea1 {
+    width: 40px;
+    height: 3px;
+    background-color: #1c99d1;
+    margin-top: 50px;
+}
+
+.a,
+.e,
+.g {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.b {
+    font-size: 1.8rem;
+    color: #ccc;
+    margin: 20px 0;
+}
+
+.c {
+    margin: 20px 0 30px;
+    line-height: 1.6;
+}
+
+.d {
+
+    border: 2px solid #1c99d1;
+    color: #1c99d1;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.f {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.icono-social {
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+.expertiseitem {
+    background: #f4f4f4;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.icon {
+    color: #ccc;
+    font-size: 30px;
+    margin-top: 3px;
+}
+
+.expertise-content strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Parte Cuatro  */
+.parteCuatro {
+    padding: 50px;
+    background: white;
+}
+
+.linea2 {
+    width: 40px;
+    height: 3px;
+    background-color: #1c99d1;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.cartaprincipal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card1,
+.card3,
+.card4,
+.card5 {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.card6,
+.card2 {
+    margin-top: 15px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+
+.linea3 {
+    width: 40px;
+    height: 3px;
+    background-color: #1c99d1;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item,
+.item1,
+.item2 {
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.punto::marker {
+    color: #1c99d1;
+}
+
+.date {
+    color: #666;
+    margin-left: 25px;
+    font-size: 0.9rem;
+}
+
+.boton2 {
+    border: none;
+    border-radius: 3px;
+    background-color: #297edc;
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+}
+
+.imagenes2 {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.music,
+.caballo,
+.paracaidas,
+.canasto {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #a2e0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a2e0f0;
+    font-size: 1.2rem;
+}
+
+.interests {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.9rem;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.barras {
+    display: flex;
+    gap: 5px;
+}
+
+.linea4,
+.linea5 {
+    height: 3px;
+    background-color: #3c9dff;
+}
+
+.linea4 {
+    width: 25px;
+}
+
+.linea5 {
+    width: 20px;
+}
+
+.icon-title,
+.icon-edu,
+.icon-ski,
+.icon-len,
+.icon-musica {
+    color: #c2c2c2;
+    font-size: 30px;
+}
+
+/* Responsive  */
+@media (max-width: 499px) and (min-width:300px) {
+    .principal {
+        margin: 0px 0px;
+    }
+
+    .parteUno {
+        height: 300px;
+        width: auto;
+    }
+
+    .titulo1 {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    .parrafo1 {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    .boton {
+        margin-top: 80px;
+        margin-left: 3px;
+        font-size: 0.8rem;
+        border-radius: 35px;
+    }
+
+    .parrafo2 {
+        font-size: 0.8rem;
+        left: 40px;
+        bottom: 70px;
+    }
+
+    .cajauno,
+    .cajados {
+        justify-content: center;
+        align-items: center;
+        font-size: 11px;
+
+    }
+    .de{
+        border: none;
+    }
+    .di{
+        border-right: solid 1px;
+        padding-right: 15px;
+         height: 40px;
+
+    }
+    .do{
+        border-left: solid 1px;
+        padding-left: 2px;
+        border-right: none;
+    }
+    .du{
+        border-right: none; 
+    }
+    
+
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    top: -60px;
+}
+
+.caja {
+    flex-direction: column;
+    padding-top: 70px;
+    justify-content: space-evenly;
+    
+}
+
+.cajass,
+.cartaprincipal {
+    grid-template-columns: 1fr;
+
+}
+
+.section-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.icon-title,
+.icon-edu,
+.icon-ski,
+.icon-len,
+.icon-musica {
+    align-self: flex-end;
+}
+
+.parteCuatro {
+    padding: 10px;
+}
+
+.linea2 {
+    margin-top: 10px;
+}
+}
+
+@media (max-width: 1000px) and (min-width:500px) {
+
+    .cajass,
+    .cartaprincipal {
+        grid-template-columns: 1fr;
+    }
+
+    .boton {
+        margin-top: 80px;
+        margin-left: 10px;
+        font-size: 0.8rem;
+    }
+
+    .parrafo2 {
+        font-size: 0.8rem;
+        left: 30px;
+        bottom: 80px;
+    }
+
+  .cajauno, .cajados {
+        justify-content: space-evenly;
+        font-size: 13px;
+
+    }
+    .de{
+        border: none;
+    }
+    .di{
+        border-right: solid 1px;
+        padding-right: 15px;
+         height: 40px;
+
+    }
+    .do{
+        border-left: solid 1px;
+        padding-left: 2px;
+        border-right: none;
+    }
+    .du{
+        border-right: none; 
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+    }
+
+    .caja {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 70px;
+    }
+
+    .linea2 {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1198px) and (min-width:1001px) {
+    .principal {
+        margin: 20px;
+    }
+
+    .parteUno {
+        height: 350px;
+        width: auto;
+
+    }
+
+    .titulo1 {
+        font-size: 2rem;
+    }
+
+    .boton {
+        margin-top: 140px;
+    }
+
+    .cartaprincipal {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+    }
+}
