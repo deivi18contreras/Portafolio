@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="resultado.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="section">
-      <div class="opera">
-        <div class="fun">
-          <input type="radio" id="su" name="color" />
-          <p>Suma</p>
-        </div>
-        <div class="fun">
-          <input type="radio" id="re" name="color" />
-          <p>Resta</p>
-        </div>
-        <div class="fun">
-          <input type="radio" id="mu" name="color" />
-          <p>Multiplicación</p>
-        </div>
-        <div class="fun">
-          <input type="radio" id="di" name="color" />
-          <p>División</p>
-        </div>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="resultado.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <title>Calculadora</title>
+</head>
+<body>
+  <div class="section">
+    
+    <div class="opera">
+      <div class="fun">
+        <input type="radio" id="su" name="color" />
+        <p>Suma</p>
       </div>
-
-      <div class="resultado2">
-        <input type="text" id="n1" />
-        <input type="text" id="n2" />
-        <button onclick="respuesta ()" id="respuesta">=</button>
-        <h1 id="resultado"></h1>
+      <div class="fun">
+        <input type="radio" id="re" name="color" />
+        <p>Resta</p>
+      </div>
+      <div class="fun">
+        <input type="radio" id="mu" name="color" />
+        <p>Multiplicación</p>
+      </div>
+      <div class="fun">
+        <input type="radio" id="di" name="color" />
+        <p>División</p>
       </div>
     </div>
-  </body>
+
+    
+    <div class="resultado2">
+
+      <div class="input-group">
+        <input type="text" id="n1" />
+        <button type="button" class="clear-btn" onclick="document.getElementById('n1').value=''">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="n2" />
+        <button type="button" class="clear-btn" onclick="document.getElementById('n2').value=''">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <button onclick="respuesta()" id="respuesta">=</button>
+      <h1 id="resultado"></h1>
+    </div>
+  </div>
+</body>
 </html>
