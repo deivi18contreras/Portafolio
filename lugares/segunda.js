@@ -58,14 +58,15 @@ axios.get("./lugares.json").then((res) => {
 
   contenido.appendChild(nombre);
   contenido.appendChild(descripcion);
+  contenido.appendChild(ciudad);
+  contenido.appendChild(pais);
   contenido.appendChild(categoria);
   contenido.appendChild(coordenadas);
   contenido.appendChild(tituloAct);
   contenido.appendChild(listaAct);
   contenido.appendChild(tituloDatos);
   contenido.appendChild(listaDatos);
-  contenido.appendChild(ciudad);
-  contenido.appendChild(pais);
+  
 
   visita.appendChild(contImagen);
   visita.appendChild(contenido);
