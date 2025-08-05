@@ -106,10 +106,15 @@ body {
 
 
 
-@media (max-width: 500px){
+@media (max-width: 499px) and (min-width: 300px ){
     .principal{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         margin-left: 5px;
         margin-right: 5px;
+    }
+}
+@media (max-width: 750px) and (min-width:500px ){
+    .principal{
+        grid-template-columns: repeat();
     }
 }

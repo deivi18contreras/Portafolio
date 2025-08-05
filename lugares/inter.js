@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     let categoria = document.createElement("p");
     categoria.textContent = lugar.categoria.nombre;
 
+    let pais = document.createElement("p");
+    pais.textContent = `País: ${lugar.pais}`;
+
     let boton = document.createElement("button");
     boton.textContent = "Ver más";
     boton.addEventListener("click", () => {
@@ -26,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     items.appendChild(nombre);
     items.appendChild(fotos);
     items.appendChild(categoria);
+    items.appendChild(pais);
     items.appendChild(boton);
 
     document.querySelector(".principal").appendChild(items);
