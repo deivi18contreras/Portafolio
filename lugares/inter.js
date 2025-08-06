@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  // Crear título dinámico
+  
   const header = document.createElement('header');
   header.className = 'titulo';
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const item = document.createElement("div");
       item.className = "item";
       item.style.opacity = "0";
-      item.style.animation = `fadeIn 0.5s forwards ${index * 0.1}s`;
+      item.style.animation = `fadeIn 0.8s forwards ${index * 0.1}s`;
 
       const img = document.createElement("img");
       img.src = lugar.url_imagen;
