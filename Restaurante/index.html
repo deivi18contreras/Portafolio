@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mesa.css">
+    <title>Restuarante</title>
+</head>
+<body>
+    <div class="principal">
+<div class="container mt-5">
+    <button class="primary" data-bs-toggle="modal" data-bs-target="#miModal">Agregar mesa</button>
+  </div> 
+  <div class="container mt-5">
+    <button class="dos" >Reservas</button>
+  </div> 
+  </div>
+ <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <h3>Información de la mesa</h3>
+          <input type="text" id="numero" placeholder="Digite el número de la mesa" required>
+          <input type="text" id="capaMesa" placeholder="Capacidad de personas en la mesa">
+          <input type="text" id="lugarMesa" placeholder="Ubicación de la mesa">
+          <input type="text" id="estadoMesa" placeholder="Estado de la mesa" value="Disponible" readonly>
+
+    
+        </div>
+         <div class="modal-footer">
+          <button type="button" class="secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="primary" onclick="guardar()">Guardar mesa registrada</button>
+        </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="mesa.js"></script>
+</body>
+</html>
