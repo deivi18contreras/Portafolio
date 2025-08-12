@@ -2,10 +2,50 @@ body {
   background: #f8f9fa;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+header{
+  text-align: center;
+}
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    background: linear-gradient(to right, #00ffcc, #00b4d8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    
+}
 
-.container mt-5{
+header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 4px;
+    background: linear-gradient(to right, #00ffcc, #00b4d8);
+    border-radius: 2px;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(104, 197, 240, 0.8);
+    line-height: 1.6;
+}
+
+
+.botones {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
 }
 
 .modal-body {
@@ -14,26 +54,19 @@ body {
   border-radius: 5px;
 }
 
-.modal-dialog {
-  margin-top: 10px;
-}
-
 .modal-body input {
   border: 1px solid #ccc;
   padding: 10px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1rem;
   margin-bottom: 10px;
-  border-radius: 10px;
   border-left: 4px solid #00ffcc;
 }
 
 .primary {
-  align-items: center;
-
   padding: 10px 25px;
-  font-size: 13PX;
+  font-size: 13px;
   background: linear-gradient(45deg, #00ffcc, #00b4d8);
   color: #000;
   border: none;
@@ -42,10 +75,20 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
 }
-.secondary{
-  align-items: center;
+.dos{
   padding: 10px 25px;
-  font-size: 13PX;
+  font-size: 13px;
+  background: linear-gradient(45deg, #00ffcc, #00b4d8);
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+}
+.secondary {
+  padding: 10px 25px;
+  font-size: 13px;
   background: linear-gradient(45deg, #00ffcc, #00b4d8);
   color: #000;
   border: none;
@@ -55,25 +98,51 @@ body {
   box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
 }
 
-
-.btn-row {
-  margin-bottom: 1rem;
+.lista-mesas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center; /* centrar las tarjetas */
 }
-
 
 .mesa-card {
-  min-height: 130px;
+  border-radius: 10px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-
-.estado-badge {
-  display: inline-block;
-  padding: .35rem .6rem;
-  border-radius: .5rem;
-  font-size: .85rem;
+.mesa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-.estado-badge.disponible { background: #28a745; color: #fff; }
-.estado-badge.ocupada { background: #dc3545; color: #fff; }
-.estado-badge.deshabilitada { background: #6c757d; color: #fff; }
+.mesa-card h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
 
+.mesa-card p {
+  margin: 5px 0;
+  font-size: 0.95em;
+}
+
+.estado-disponible {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.estado-ocupada {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.estado-reservada {
+  color: #ffc107;
+  font-weight: bold;
+}
