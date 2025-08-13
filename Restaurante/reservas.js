@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
       fechaReserva: document.getElementById("fechaReserva").value,
       horaReserva: document.getElementById("horaReserva").value,
       ocasionEspecial: document.getElementById("ocasionEspecial").value.trim(),
-      notasAdicionales: document.getElementById("notasAdicionales").value.trim(),
       idMesaAsignada: document.getElementById("idMesaAsignada").value.trim(),
       estado: document.getElementById("estado").value
     };
