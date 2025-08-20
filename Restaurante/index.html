@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="mesa.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="contenedor"></div>
 
@@ -29,7 +31,14 @@
           <h3>Información de la mesa</h3>
           <input type="text" id="numero" placeholder="Digite el número de la mesa" required>
           <input type="text" id="capaMesa" placeholder="Capacidad de personas en la mesa">
-          <input type="text" id="lugarMesa" placeholder="Ubicación de la mesa">
+          <select id="lugarMesa">
+            <option value="" disabled selected>Ubicación de la mesa</option>
+            <option value="jardin">Jardín</option>
+            <option value="piscina">Piscina</option>
+            <option value="terraza">Terraza</option>
+            <option value="salon">Salón</option>
+          </select>
+
           <input type="text" id="estadoMesa" placeholder="Estado de la mesa" value="Disponible" readonly>
         </div>
 
@@ -47,5 +56,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
   <script src="mesa.js"></script>
 </body>
-</html>
 
+</html>

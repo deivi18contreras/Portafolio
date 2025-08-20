@@ -9,10 +9,41 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.insertBefore(header, document.querySelector('.contenedor'));
 
   const STORAGE_KEY = "mesas_restaurante_v1";
+  const RESERVAS_KEY = "reservas_restaurante_v1";
 
   function obtenerMesas() {
     const mesasGuardadas = localStorage.getItem(STORAGE_KEY);
     return mesasGuardadas ? JSON.parse(mesasGuardadas) : [];
+  }
+
+  function obtenerReservas() {
+    const reservasGuardadas = localStorage.getItem(RESERVAS_KEY);
+    return reservasGuardadas ? JSON.parse(reservasGuardadas) : [];
+  }
+
+  function actualizarEstadoMesa(numeroMesa, nuevoEstado) {
+    const mesas = obtenerMesas();
+    const mesaIndex = mesas.findIndex(m => m.numero === numeroMesa);
+    if (mesaIndex !== -1) {
+      mesas[mesaIndex].estado = nuevoEstado;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(mesas));
+      pintarMesas(); // Repintar para mostrar cambios
+    }
+  }
+
+  function verificarEstadoMesa(numeroMesa) {
+    const reservas = obtenerReservas();
+    const now = new Date();
+    const hoy = now.toISOString().split('T')[0];
+    
+    // Buscar reservas activas para esta mesa
+    const reservaActiva = reservas.find(r => 
+      r.idMesaAsignada === numeroMesa && 
+      r.fechaReserva >= hoy && 
+      (r.estado === 'Confirmada' || r.estado === 'Pendiente')
+    );
+    
+    return reservaActiva ? 'Ocupada' : 'Disponible';
   }
 
   function guardarMesa(mesa) {
@@ -32,22 +63,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     mesas.forEach((mesa, index) => {
+      // Verificar estado actual de la mesa
+      const estadoActual = verificarEstadoMesa(mesa.numero);
+      if (estadoActual !== mesa.estado) {
+        mesa.estado = estadoActual;
+        actualizarEstadoMesa(mesa.numero, estadoActual);
+      }
+
       const card = document.createElement('div');
       card.classList.add('mesa-card');
-      const estadoClass = mesa.estado.toLowerCase() === "disponible" ? "estado-disponible" : "estado-otro";
+      
+      // Clases de estado para colores
+      let estadoClass = "estado-disponible";
+      if (mesa.estado.toLowerCase() === "ocupada") {
+        estadoClass = "estado-ocupada";
+      }
 
       card.innerHTML = `
         <h4>Mesa ${mesa.numero}</h4>
         <p>Capacidad: ${mesa.capacidad} personas</p>
         <p>Ubicación: ${mesa.lugar}</p>
         <p class="${estadoClass}">${mesa.estado}</p>
-        <button class="btn btn-warning btn-sm btn-editar" data-index="${index}">Editar</button>
-        <button class="btn btn-danger btn-sm btn-eliminar" data-index="${index}">Eliminar</button>
+        <div class="botones-mesa">
+          <button class="btn btn-success btn-sm btn-reservar" data-mesa="${mesa.numero}" ${mesa.estado === 'Ocupada' ? 'disabled' : ''}>
+            Reservar
+          </button>
+          <button class="btn btn-warning btn-sm btn-editar" data-index="${index}">Editar</button>
+          <button class="btn btn-danger btn-sm btn-eliminar" data-index="${index}">Eliminar</button>
+        </div>
       `;
       lista.appendChild(card);
     });
 
-    // Agregar eventos para editar
+    //  Reservar 
+    document.querySelectorAll('.btn-reservar').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const numeroMesa = e.target.getAttribute('data-mesa');
+
+        // Buscar mesa para obtener la capacidad
+        const mesas = obtenerMesas();
+        const mesaSeleccionadaObj = mesas.find(m => m.numero === numeroMesa);
+
+        // Guardar mesa seleccionada y capacidad para usar en reservas.html
+        sessionStorage.setItem('mesaSeleccionada', numeroMesa);
+        if (mesaSeleccionadaObj) {
+          sessionStorage.setItem('capacidadMesa', mesaSeleccionadaObj.capacidad);
+        }
+
+        window.location.href = "reservas.html";
+      });
+    });
+
+    // editar//
     document.querySelectorAll('.btn-editar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
@@ -58,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("capaMesa").value = mesa.capacidad;
         document.getElementById("lugarMesa").value = mesa.lugar;
         document.getElementById("estadoMesa").value = mesa.estado;
-
         document.getElementById("numero").setAttribute('data-edit-index', index);
 
         if (!modalInstance) modalInstance = new bootstrap.Modal(miModalEl);
@@ -66,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Agregar eventos para eliminar
+    //eliminar//
     document.querySelectorAll('.btn-eliminar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
@@ -141,12 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mesas = obtenerMesas();
 
     if (editIndex !== null) {
-      // Editar mesa existente
       mesas[editIndex] = { numero, capacidad, lugar, estado };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(mesas));
       Swal.fire("Actualizado", "Mesa actualizada correctamente", "success");
     } else {
-      // Nueva mesa
       if (mesas.some(m => m.numero === numero)) {
         Swal.fire({ icon: "warning", title: "Mesa ya registrada", text: `La mesa ${numero} ya existe` });
         return;
@@ -163,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pintarMesas();
     if (modalInstance) modalInstance.hide();
+  });
 
   pintarMesas();
-})
 });

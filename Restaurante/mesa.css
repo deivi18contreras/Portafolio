@@ -54,7 +54,7 @@ header p {
   border-radius: 5px;
 }
 
-.modal-body input {
+.modal-body input , #lugarMesa{
   border: 1px solid #ccc;
   padding: 10px;
   width: 100%;
@@ -106,43 +106,67 @@ header p {
   justify-content: center; /* centrar las tarjetas */
 }
 
-.mesa-card {
-  border-radius: 10px;
-  padding: 15px;
-  width: 220px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background-color: white;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.mesa-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.mesa-card h4 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  text-align: center;
-}
-
-.mesa-card p {
-  margin: 5px 0;
-  font-size: 0.95em;
-}
-
+/* Estados de mesa con colores */
 .estado-disponible {
-  color: #28a745;
-  font-weight: bold;
+    color: #28a745;
+    font-weight: bold;
+    background-color: #d4edda;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 2px solid #28a745;
 }
 
 .estado-ocupada {
-  color: #dc3545;
-  font-weight: bold;
+    color: #dc3545;
+    font-weight: bold;
+    background-color: #f8d7da;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 2px solid #dc3545;
 }
 
-.estado-reservada {
-  color: #ffc107;
-  font-weight: bold;
+.estado-otro {
+    color: #ffc107;
+    font-weight: bold;
+    background-color: #fff3cd;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 2px solid #ffc107;
 }
+
+
+.mesa-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.mesa-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.botones-mesa {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.botones-mesa .btn {
+    flex: 1;
+    min-width: 80px;
+}
+
+
+.mesa-seleccionada {
+    background-color: #e3f2fd !important;
+    border: 2px solid #2196f3 !important;
+    color: #1565c0 !important;
+}
+
