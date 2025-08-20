@@ -83,6 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .value.trim();
     const estado = document.getElementById("estado").value.trim();
 
+    
+
     if (!nombreCliente) {
       Swal.fire({
         icon: "error",
@@ -177,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       idMesaAsignada,
       estado,
     };
+    
 
     guardarReserva(nuevaReserva);
 
