@@ -11,6 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = "mesas_restaurante_v1";
   const RESERVAS_KEY = "reservas_restaurante_v1";
 
+  // 🔹 Inicializar mesas por defecto si no existen
+  function inicializarMesas() {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      const mesasPorDefecto = [
+        { numero: "1", capacidad: 2, lugar: "Jardín", estado: "Disponible" },
+        { numero: "2", capacidad: 4, lugar: "Piscina", estado: "Disponible" },
+        { numero: "3", capacidad: 4, lugar: "Terraza", estado: "Disponible" },
+        { numero: "4", capacidad: 6, lugar: "Salón", estado: "Disponible" }
+      ];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(mesasPorDefecto));
+    }
+  }
+  inicializarMesas();
+
   function obtenerMesas() {
     const mesasGuardadas = localStorage.getItem(STORAGE_KEY);
     return mesasGuardadas ? JSON.parse(mesasGuardadas) : [];
@@ -27,22 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mesaIndex !== -1) {
       mesas[mesaIndex].estado = nuevoEstado;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(mesas));
-      pintarMesas(); // Repintar para mostrar cambios
+      pintarMesas();
     }
   }
 
   function verificarEstadoMesa(numeroMesa) {
     const reservas = obtenerReservas();
-    const now = new Date();
-    const hoy = now.toISOString().split('T')[0];
-    
-    // Buscar reservas activas para esta mesa
-    const reservaActiva = reservas.find(r => 
-      r.idMesaAsignada === numeroMesa && 
-      r.fechaReserva >= hoy && 
+    const hoy = new Date().toISOString().split('T')[0];
+
+    const reservaActiva = reservas.find(r =>
+      r.idMesaAsignada === numeroMesa &&
+      r.fechaReserva >= hoy &&
       (r.estado === 'Confirmada' || r.estado === 'Pendiente')
     );
-    
+
     return reservaActiva ? 'Ocupada' : 'Disponible';
   }
 
@@ -63,20 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     mesas.forEach((mesa, index) => {
-      // Verificar estado actual de la mesa
       const estadoActual = verificarEstadoMesa(mesa.numero);
-      if (estadoActual !== mesa.estado) {
+      if (estadoActual !== mesa.estado && mesa.estado !== "Deshabilitada") {
         mesa.estado = estadoActual;
-        actualizarEstadoMesa(mesa.numero, estadoActual);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(mesas));
       }
 
       const card = document.createElement('div');
       card.classList.add('mesa-card');
-      
-      // Clases de estado para colores
+
       let estadoClass = "estado-disponible";
       if (mesa.estado.toLowerCase() === "ocupada") {
         estadoClass = "estado-ocupada";
+      } else if (mesa.estado.toLowerCase() === "deshabilitada") {
+        estadoClass = "estado-deshabilitada";
       }
 
       card.innerHTML = `
@@ -85,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>Ubicación: ${mesa.lugar}</p>
         <p class="${estadoClass}">${mesa.estado}</p>
         <div class="botones-mesa">
-          <button class="btn btn-success btn-sm btn-reservar" data-mesa="${mesa.numero}" ${mesa.estado === 'Ocupada' ? 'disabled' : ''}>
+          <button class="btn btn-success btn-sm btn-reservar" data-mesa="${mesa.numero}" data-capacidad="${mesa.capacidad}" ${mesa.estado !== 'Disponible' ? 'disabled' : ''}>
             Reservar
           </button>
           <button class="btn btn-warning btn-sm btn-editar" data-index="${index}">Editar</button>
@@ -95,26 +107,21 @@ document.addEventListener('DOMContentLoaded', () => {
       lista.appendChild(card);
     });
 
-    //  Reservar 
+    // 🔹 Reservar
     document.querySelectorAll('.btn-reservar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const numeroMesa = e.target.getAttribute('data-mesa');
+        const capacidadMesa = e.target.getAttribute('data-capacidad');
 
-        // Buscar mesa para obtener la capacidad
-        const mesas = obtenerMesas();
-        const mesaSeleccionadaObj = mesas.find(m => m.numero === numeroMesa);
-
-        // Guardar mesa seleccionada y capacidad para usar en reservas.html
         sessionStorage.setItem('mesaSeleccionada', numeroMesa);
-        if (mesaSeleccionadaObj) {
-          sessionStorage.setItem('capacidadMesa', mesaSeleccionadaObj.capacidad);
-        }
+        sessionStorage.setItem('capacidadMesa', capacidadMesa);
+        sessionStorage.setItem('abrirFormularioReserva', 'true');
 
         window.location.href = "reservas.html";
       });
     });
 
-    // editar//
+    // 🔹 Editar
     document.querySelectorAll('.btn-editar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
@@ -132,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    //eliminar//
+    // 🔹 Eliminar
     document.querySelectorAll('.btn-eliminar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
@@ -231,3 +238,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   pintarMesas();
 });
+

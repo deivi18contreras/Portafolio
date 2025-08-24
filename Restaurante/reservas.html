@@ -17,6 +17,22 @@
     <a href="index.html" class="btn btn-secondary">← Volver</a>
   </div>
 
+  <!-- Filtros -->
+  <div class="container my-3 d-flex gap-2">
+    <input type="date" id="filtroFecha" class="form-control" />
+    <select id="filtroEstado" class="form-control">
+      <option value="">Todos los estados</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Confirmada">Confirmada</option>
+      <option value="Cancelada">Cancelada</option>
+      <option value="Finalizada">Finalizada</option>
+      <option value="No Show">No Show</option>
+    </select>
+    <button id="btnFiltrar" class="btn btn-info">Filtrar</button>
+    <button id="btnLimpiarFiltros" class="btn btn-secondary">Limpiar</button>
+  </div>
+
+  <!-- Formulario -->
   <div id="formContainer" style="display: none; max-width: 600px; margin: auto;">
     <form id="formReserva">
       <input type="text" id="nombreCliente" class="form-control mb-3" placeholder="Nombre del Cliente" />
@@ -24,9 +40,27 @@
       <input type="number" id="numeroPersonas" class="form-control mb-3" placeholder="Número de Personas" />
       <input type="date" id="fechaReserva" class="form-control mb-3" />
       <input type="time" id="horaReserva" class="form-control mb-3" />
-      <input type="text" id="ocasionEspecial" class="form-control mb-3" placeholder="Ocasión Especial (opcional)" />
+
+      <!-- Select de Ocasión especial -->
+      <select id="ocasionEspecial" class="form-control mb-3">
+        <option value="">Ninguna</option>
+        <option value="Cumpleaños">Cumpleaños</option>
+        <option value="Aniversario">Aniversario</option>
+        <option value="Reunión de Negocios">Reunión de Negocios</option>
+        <option value="Cena Romántica">Cena Romántica</option>
+        <option value="Graduación">Graduación</option>
+        <option value="Bautizo">Bautizo</option>
+        <option value="Boda">Boda</option>
+      
+      </select>
+
       <input type="text" id="notasAdicionales" class="form-control mb-3" placeholder="Notas Adicionales (opcional)" />
-      <input type="text" id="idMesaAsignada" class="form-control mb-3" placeholder="ID Mesa Asignada" />
+
+      <!-- Select dinámico de Mesa -->
+      <select id="idMesaAsignada" class="form-control mb-3">
+        <option value="" disabled selected>Selecciona una mesa disponible</option>
+      </select>
+
       <select id="estado" class="form-control mb-3">
         <option value="" disabled selected>Estado</option>
         <option value="Pendiente">Pendiente</option>
@@ -38,6 +72,7 @@
       <button type="submit" class="btn btn-success w-100">Guardar Reserva</button>
     </form>
   </div>
+
   <div id="listaReservas"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

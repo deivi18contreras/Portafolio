@@ -1,172 +1,154 @@
-body {
-  background: #f8f9fa;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-header{
-  text-align: center;
-}
-header h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
-    background: linear-gradient(to right, #00ffcc, #00b4d8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-    
+/* ====== Fuente y reset ====== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header h1::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 4px;
-    background: linear-gradient(to right, #00ffcc, #00b4d8);
-    border-radius: 2px;
+body {
+  background: linear-gradient(180deg, #0a0f1f, #000);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  line-height: 1.6;
+}
+
+/* ====== Header ====== */
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #00ff88;
+  text-shadow: 0 0 15px #00ff88;
 }
 
 header p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-    color: rgba(104, 197, 240, 0.8);
-    line-height: 1.6;
+  font-size: 1.2rem;
+  color: rgba(0, 255, 136, 0.8);
 }
 
-
+/* ====== Botones principales ====== */
 .botones {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 10px;
   margin: 20px;
 }
 
-.modal-body {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
+.primary, .dos, .secondary {
+  background: transparent;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.modal-body input , #lugarMesa{
-  border: 1px solid #ccc;
+.primary:hover, .dos:hover, .secondary:hover {
+  background: #00ff88;
+  color: #000;
+  box-shadow: 0 0 20px #00ff88;
+}
+
+/* ====== Campos de formulario ====== */
+ .modal-body input, 
+#lugarMesa, 
+textarea {
+  background: rgba(0, 255, 136, 0.05);
+  
+  border: 1px solid #00ff88;
   padding: 10px;
   width: 100%;
   border-radius: 10px;
   font-size: 1rem;
   margin-bottom: 10px;
-  border-left: 4px solid #00ffcc;
+} 
+
+.modal-body input::placeholder,
+#lugarMesa::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.primary {
-  padding: 10px 25px;
-  font-size: 13px;
-  background: linear-gradient(45deg, #00ffcc, #00b4d8);
-  color: #000;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
-}
-.dos{
-  padding: 10px 25px;
-  font-size: 13px;
-  background: linear-gradient(45deg, #00ffcc, #00b4d8);
-  color: #000;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
-}
-.secondary {
-  padding: 10px 25px;
-  font-size: 13px;
-  background: linear-gradient(45deg, #00ffcc, #00b4d8);
-  color: #000;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+.modal-body input:focus, 
+#lugarMesa:focus, 
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff88;
 }
 
+/* ====== Lista de mesas ====== */
 .lista-mesas {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
   margin-top: 20px;
-  justify-content: center; /* centrar las tarjetas */
 }
 
-/* Estados de mesa con colores */
+/* Estados */
 .estado-disponible {
-    color: #28a745;
-    font-weight: bold;
-    background-color: #d4edda;
-    padding: 5px 10px;
-    border-radius: 15px;
-    border: 2px solid #28a745;
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid #00ff88;
 }
 
 .estado-ocupada {
-    color: #dc3545;
-    font-weight: bold;
-    background-color: #f8d7da;
-    padding: 5px 10px;
-    border-radius: 15px;
-    border: 2px solid #dc3545;
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4d4d;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid #ff4d4d;
 }
 
-.estado-otro {
-    color: #ffc107;
-    font-weight: bold;
-    background-color: #fff3cd;
-    padding: 5px 10px;
-    border-radius: 15px;
-    border: 2px solid #ffc107;
+.estado-deshabilitada {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid #777;
 }
 
-
+/* ====== Card de mesa ====== */
 .mesa-card {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #007bff;
-    transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  width: 220px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .mesa-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00ff88;
+  border: 1px solid #00ff88;
 }
 
-
+/* Botones de cada mesa */
 .botones-mesa {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .botones-mesa .btn {
-    flex: 1;
-    min-width: 80px;
-}
-
-
-.mesa-seleccionada {
-    background-color: #e3f2fd !important;
-    border: 2px solid #2196f3 !important;
-    color: #1565c0 !important;
+  flex: 1;
+  min-width: 80px;
 }
 

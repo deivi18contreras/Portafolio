@@ -1,39 +1,136 @@
-/* reservas.css */
-body {
-  background-color: #f8f9fa;
-  font-family: Arial, sans-serif;
-}
+/* ====== Fuente y reset ====== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-h1 {
-  color: #333;
-}
-
-#formContainer {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-#listaReservas {
-  max-width: 800px;
-  margin: 30px auto;
-}
-
-.reserva-card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-}
-
-.reserva-card h4 {
+* {
   margin: 0;
-  color: #007bff;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.btn {
-  border-radius: 8px;
+body {
+  background: linear-gradient(180deg, #0a0f1f, #000);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  line-height: 1.6;
 }
 
+/* ====== Header ====== */
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #00ff88;
+  text-shadow: 0 0 15px #00ff88;
+}
+
+/* ====== Botones ====== */
+.btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info {
+  background: transparent !important;
+  border: 1px solid #00ff88 !important;
+  color: #00ff88 !important;
+  border-radius: 30px !important;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #00ff88 !important;
+  color: #000 !important;
+  box-shadow: 0 0 20px #00ff88;
+}
+
+/* ====== Formulario ====== */
+#formContainer {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+#formReserva input,
+#formReserva select,
+#formReserva textarea {
+  background: rgba(0, 255, 136, 0.05);
+  color: #fff;
+  border: 1px solid #00ff88;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#formReserva input::placeholder,
+#formReserva textarea::placeholder,
+#formReserva select option {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#formReserva input:focus,
+#formReserva select:focus,
+#formReserva textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+/* ====== Lista de reservas ====== */
+#listaReservas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  width: 350px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00ff88;
+  border: 1px solid #00ff88;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+/* ====== Imagen y texto de ocasión especial ====== */
+.ocasion-especial-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f0fff8;
+  border: 2px dashed #00c97e;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 201, 126, 0.2);
+}
+
+.ocasion-especial-container img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #00ff88;
+  margin-bottom: 10px;
+}
+
+.ocasion-especial-container p {
+  font-size: 1.1rem;
+  color: #00aa66;
+  font-weight: bold;
+  margin: 0;
+}
