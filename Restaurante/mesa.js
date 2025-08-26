@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const RESERVAS_KEY = "reservas_restaurante_v1";
 
   // 🔹 Inicializar mesas por defecto si no existen
-  function inicializarMesas() {
+ /*  function inicializarMesas() {
     if (!localStorage.getItem(STORAGE_KEY)) {
       const mesasPorDefecto = [
         { numero: "1", capacidad: 2, lugar: "Jardín", estado: "Disponible" },
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(mesasPorDefecto));
     }
   }
-  inicializarMesas();
+  inicializarMesas(); */
 
   function obtenerMesas() {
     const mesasGuardadas = localStorage.getItem(STORAGE_KEY);

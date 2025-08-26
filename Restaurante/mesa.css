@@ -1,4 +1,4 @@
-/* ====== Fuente y reset ====== */
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 * {
@@ -14,7 +14,7 @@ body {
   line-height: 1.6;
 }
 
-/* ====== Header ====== */
+
 header {
   text-align: center;
   padding: 2rem 0;
@@ -31,7 +31,7 @@ header p {
   color: rgba(0, 255, 136, 0.8);
 }
 
-/* ====== Botones principales ====== */
+
 .botones {
   display: flex;
   justify-content: center;
@@ -55,12 +55,11 @@ header p {
   box-shadow: 0 0 20px #00ff88;
 }
 
-/* ====== Campos de formulario ====== */
+
  .modal-body input, 
 #lugarMesa, 
 textarea {
   background: rgba(0, 255, 136, 0.05);
-  
   border: 1px solid #00ff88;
   padding: 10px;
   width: 100%;
@@ -82,7 +81,7 @@ textarea:focus {
   box-shadow: 0 0 10px #00ff88;
 }
 
-/* ====== Lista de mesas ====== */
+
 .lista-mesas {
   display: flex;
   flex-wrap: wrap;
@@ -92,7 +91,7 @@ textarea:focus {
   margin-top: 20px;
 }
 
-/* Estados */
+
 .estado-disponible {
   background: rgba(0, 255, 136, 0.1);
   color: #00ff88;
@@ -120,10 +119,11 @@ textarea:focus {
   border: 1px solid #777;
 }
 
-/* ====== Card de mesa ====== */
+
 .mesa-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(212, 13, 13, 0.03);
   border-radius: 10px;
+  color: white;
   padding: 20px;
   margin: 15px 0;
   width: 220px;
@@ -138,7 +138,7 @@ textarea:focus {
   border: 1px solid #00ff88;
 }
 
-/* Botones de cada mesa */
+
 .botones-mesa {
   margin-top: 15px;
   display: flex;

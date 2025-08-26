@@ -1,4 +1,4 @@
-/* ====== Fuente y reset ====== */
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 * {
@@ -14,7 +14,68 @@ body {
   line-height: 1.6;
 }
 
-/* ====== Header ====== */
+.row{  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-text2 {
+  white-space: nowrap;
+}
+
+.card-text7{
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 header {
   text-align: center;
   padding: 2rem 0;
@@ -26,7 +87,7 @@ header h1 {
   text-shadow: 0 0 15px #00ff88;
 }
 
-/* ====== Botones ====== */
+
 .btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info {
   background: transparent !important;
   border: 1px solid #00ff88 !important;
@@ -41,19 +102,29 @@ header h1 {
   box-shadow: 0 0 20px #00ff88;
 }
 
-/* ====== Formulario ====== */
+
 #formContainer {
   background: rgba(255, 255, 255, 0.03);
+  color: black;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
 }
 
 #formReserva input,
-#formReserva select,
 #formReserva textarea {
   background: rgba(0, 255, 136, 0.05);
-  color: #fff;
+  color: #ffffff;
+  border: 1px solid #00ff88;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+} 
+#formReserva select{
+  background: rgba(0, 255, 136, 0.05);
+  color: #ffffff;
   border: 1px solid #00ff88;
   padding: 10px;
   width: 100%;
@@ -61,11 +132,14 @@ header h1 {
   font-size: 1rem;
   margin-bottom: 10px;
 }
+#formReserva select option{
+  background: #000;
+  color: #fff;
+}
 
 #formReserva input::placeholder,
-#formReserva textarea::placeholder,
-#formReserva select option {
-  color: rgba(255, 255, 255, 0.6);
+#formReserva textarea::placeholder {
+  color: rgba(255, 255, 255, 0.526);
 }
 
 #formReserva input:focus,
@@ -75,7 +149,7 @@ header h1 {
   box-shadow: 0 0 10px #00ff88;
 }
 
-/* ====== Lista de reservas ====== */
+
 #listaReservas {
   display: flex;
   flex-wrap: wrap;
@@ -103,9 +177,9 @@ header h1 {
   padding: 5px 10px;
   border-radius: 5px;
   color: white;
-}
+} 
 
-/* ====== Imagen y texto de ocasión especial ====== */
+
 .ocasion-especial-container {
   display: flex;
   flex-direction: column;
@@ -117,11 +191,11 @@ header h1 {
   padding: 10px;
   margin-bottom: 15px;
   box-shadow: 0 4px 10px rgba(0, 201, 126, 0.2);
-}
+}  
 
 .ocasion-especial-container img {
-  width: 200px;
-  height: 120px;
+  width: 250px;
+  height: 150px;
   object-fit: cover;
   border-radius: 10px;
   border: 3px solid #00ff88;
@@ -129,7 +203,7 @@ header h1 {
 }
 
 .ocasion-especial-container p {
-  font-size: 1.1rem;
+  font-size: 50px;
   color: #00aa66;
   font-weight: bold;
   margin: 0;
