@@ -6,12 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio Deivi</title>
   <link rel="stylesheet" href="portafolio.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
-<body>
+<body id="inicio">
   <div class="partePrincipal">
-
 
     <div class="parteUno">
       <h1 class="uno">MI PORTAFOLIO</h1>
@@ -21,11 +20,11 @@
       <div class="nom">
         <h2 class="dos0">Deivi Santiago Contreras Bogoya</h2>
       </div>
-      <div class="botones"> <button class="dos1">Inicio</button>
-        <button class="dos2">Proyectos</button>
-        <button class="dos3">Contactos</button>
+      <div class="botones">
+        <button class="dos1" onclick="location.href='#inicio'">Inicio</button>
+        <button class="dos2" onclick="location.href='#proyectos'">Proyectos</button>
+        <button class="dos3" onclick="location.href='#contactos'">Contactos</button>
       </div>
-
     </div>
 
     <div class="parteDos">
@@ -33,79 +32,77 @@
         <div class="Perfil"></div>
         <div class="descripcion">
           <ul>
-             <li> Desarrollador front-end con visión creativa.</li>
-             <li>Diseño lo que otros solo imaginan.</li>
-             <li>Me enfoco en el detalle, el orden y la estética.</li>
-             <li>Cada proyecto es una oportunidad para hacerlo mejor</li>
-             <li>Transformo ideas en páginas web que comunican, conectan y destacan</li>
+            <li>Desarrollador front-end con visión creativa.</li>
+            <li>Diseño lo que otros solo imaginan.</li>
+            <li>Me enfoco en el detalle, el orden y la estética.</li>
+            <li>Cada proyecto es una oportunidad para hacerlo mejor</li>
+            <li>Transformo ideas en páginas web que comunican, conectan y destacan</li>
           </ul>
-
-
         </div>
       </div>
     </div>
 
-    <div class="parteTres">
+    <!-- Sección proyectos con id -->
+    <div class="parteTres" id="proyectos">
       <div class="proyec1">
-        <h1 id="two"> Quien Soy?</h1>
-        <img src="./hoja.jpg" class="imgpr2">
+        <h1 id="two">Quien Soy?</h1>
+        <img src="./hoja.jpg" class="imgpr2" />
         <a href="./pag/index.html" target="_blank" rel="noopener noreferrer">
-          <button class="bot2"> Leer más</button>
+          <button class="bot2">Leer más</button>
         </a>
       </div>
       <div class="proyec2">
-        <h1 id="one"> Hoja De Vida</h1>
-        <img src="./yo.jpg" class="imgpr">
+        <h1 id="one">Hoja De Vida</h1>
+        <img src="./yo.jpg" class="imgpr" />
         <a href="./pag Deivi Contreras/pagina 3/index.html" target="_blank" rel="noopener noreferrer">
-          <button class="bot1"> Leer más</button>
+          <button class="bot1">Leer más</button>
         </a>
       </div>
       <div class="proyec3">
-        <h1 id="three"> Tienda Motos</h1>
-        <img src="./moto.jpg" class="imgpr3">
+        <h1 id="three">Tienda Motos</h1>
+        <img src="./moto.jpg" class="imgpr3" />
         <a href="./pag moto2/index.html" target="_blank" rel="noopener noreferrer">
-          <button class="bot3"> Leer más</button>
+          <button class="bot3">Leer más</button>
         </a>
       </div>
       <div class="proyec3">
-        <h1 id="three"> Calculadora</h1>
-        <img src="./calcu.avif" class="imgpr3">
+        <h1 id="three">Calculadora</h1>
+        <img src="./calcu.avif" class="imgpr3" />
         <a href="./Operaciones/index.html" target="_blank" rel="noopener noreferrer">
-          <button class="bot3"> Leer más</button>
-        </a>
-      </div>
-
-       <div class="proyec3">
-        <h1 id="three"> Lugares Historicos</h1>
-        <img src="./hist.jpg" class="imgpr3">
-        <a href="./lugares/index.html" target="_blank" rel="noopener noreferrer">
-          <button class="bot3"> Leer más</button>
+          <button class="bot3">Leer más</button>
         </a>
       </div>
 
       <div class="proyec3">
-        <h1 id="three"> Formulario</h1>
-        <img src="./hist.jpg" class="imgpr3">
-        <a href="./Formulario/CRUD.HTML" target="_blank" rel="noopener noreferrer">
-          <button class="bot3"> Leer más</button>
+        <h1 id="three">Lugares Historicos</h1>
+        <img src="./hist.jpg" class="imgpr3" />
+        <a href="./lugares/index.html" target="_blank" rel="noopener noreferrer">
+          <button class="bot3">Leer más</button>
+        </a>
+      </div>
+
+      <div class="proyec3">
+        <h1 id="three">Restaurante</h1>
+        <img src="./resturante.jpg" class="imgpr3" />
+        <a href="./Restaurante/index.html" target="_blank" rel="noopener noreferrer">
+          <button class="bot3">Leer más</button>
         </a>
       </div>
     </div>
 
-    <div class="iconos">
-
-      <a href="" target="_blank" title="GitHub">
+    <!-- Sección contactos con id -->
+    <div class="iconos" id="contactos">
+      <a href="https://github.com/deivi18contreras/Portafolio.git" target="_blank" title="GitHub">
         <i class="fab fa-github"></i>
       </a>
-
 
       <a href="https://www.instagram.com/deivi_bogoya?igsh=MXJxZm1vM3duYXVuMg%3D%D&utm_source=qr" target="_blank"
         title="Instagram">
         <i class="fab fa-instagram"></i>
       </a>
 
-
-      <a href="" target="_blank" title="WhatsApp">
+      <a href="https://wa.me/573124759754?text=Hola%2C%20trabajo%20en%20el%20%C3%A1rea%20de%20software%20y%20me%20especializo%20en%20ofrecer%20servicios%20de%20alta%20calidad%20adaptados%20a%20las%20necesidades%20de%20mis%20clientes.%20Estoy%20comprometido%20con%20brindar%20soluciones%20eficientes%20y%20confiables.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20c%C3%B3mo%20puedo%20ayudarte%20o%20colaborar%20contigo.%20Quedo%20atento%20a%20tu%20respuesta%2C%20gracias."
+        target="_blank" title="WhatsApp">
         <i class="fab fa-whatsapp"></i>
       </a>
 
@@ -113,11 +110,9 @@
         <i class="fas fa-phone-alt"></i>
       </a>
 
-
       <a href="#" title="JavaScript">
         <i class="fab fa-js-square"></i>
       </a>
-
 
       <a href="#" title="CSS3">
         <i class="fab fa-css3-alt"></i>
@@ -128,3 +123,5 @@
 </body>
 
 </html>
+
+
