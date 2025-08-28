@@ -6,6 +6,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: linear-gradient(180deg, #0a0f1f, #000);
@@ -34,8 +37,12 @@ body {
   align-items: center;
   padding: 1rem 3rem;
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+
 }
+
 
 .dos0 {
   font-size: 1.5rem;
