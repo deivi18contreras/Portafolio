@@ -81,13 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Boda: "./img/boda.jpg",
   };
 
-  // 🔹imagen//
-  function obtenerImagenOcasion(ocasion) {
-    const ruta = imagenesOcasiones[ocasion] || "img/default.png";
-    return `<img src="${ruta}" alt="${ocasion}" 
-                 style="width:100px;height:60px;object-fit:cover;border-radius:5px;"
-                 onerror="this.onerror=null;this.src='img/default.png';">`;
-  }
+
 
   function pintarReservas(filtroFecha = "", filtroEstado = "") {
     const lista = document.getElementById("listaReservas");
@@ -230,34 +224,48 @@ if (reserva.ocasionEspecial) {
     });
   }
   //editar//
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("btn-editar-reserva")) {
-      const idReserva = e.target.getAttribute("data-id");
-      const reservas = obtenerReservas();
-      const reserva = reservas.find((r) => r.idReserva === idReserva);
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-editar-reserva")) {
+    const idReserva = e.target.getAttribute("data-id");
+    const reservas = obtenerReservas();
+    const reserva = reservas.find((r) => r.idReserva === idReserva);
+    if (!reserva) return;
 
-      if (!reserva) return;
+  
+    document.getElementById("formContainer").style.display = "block";
+    cargarSelectorMesas();
 
-      document.getElementById("nombreCliente").value = reserva.nombreCliente;
-      document.getElementById("apellidoCliente").value =
-        reserva.apellidoCliente;
-      document.getElementById("numeroPersonas").value = reserva.numeroPersonas;
-      document.getElementById("fechaReserva").value = reserva.fechaReserva;
-      document.getElementById("horaReserva").value = reserva.horaReserva;
-      document.getElementById("ocasionEspecial").value =
-        reserva.ocasionEspecial || "";
-      document.getElementById("notasAdicionales").value =
-        reserva.notasAdicionales || "";
-    
-      document.getElementById("estado").value = reserva.estado;
+    const selectorMesa = document.getElementById("idMesaAsignada");
+    let existeOpcion = Array.from(selectorMesa.options).some(
+      opt => opt.value === reserva.idMesaAsignada
+    );
 
-      document
-        .getElementById("formReserva")
-        .setAttribute("data-edit-id", idReserva);
-
-      document.getElementById("formContainer").style.display = "block";
+    if (!existeOpcion) {
+      const option = document.createElement("option");
+      option.value = reserva.idMesaAsignada;
+      option.textContent = `Mesa ${reserva.idMesaAsignada} (Ocupada)`;
+      selectorMesa.appendChild(option);
     }
-  });
+
+    
+    selectorMesa.value = reserva.idMesaAsignada;
+    selectorMesa.disabled = true;
+
+    // Rellenar datos
+    document.getElementById("nombreCliente").value = reserva.nombreCliente;
+    document.getElementById("apellidoCliente").value = reserva.apellidoCliente;
+    document.getElementById("numeroPersonas").value = reserva.numeroPersonas;
+    document.getElementById("fechaReserva").value = reserva.fechaReserva;
+    document.getElementById("horaReserva").value = reserva.horaReserva;
+    document.getElementById("ocasionEspecial").value = reserva.ocasionEspecial || "";
+    document.getElementById("notasAdicionales").value = reserva.notasAdicionales || "";
+    document.getElementById("estado").value = reserva.estado;
+
+   
+    document.getElementById("formReserva").setAttribute("data-edit-id", idReserva);
+  }
+});
+
   function editarReserva(idReserva, nuevosDatos) {
     const reservas = obtenerReservas();
     const index = reservas.findIndex((r) => r.idReserva === idReserva);
@@ -278,6 +286,8 @@ if (reserva.ocasionEspecial) {
   document.getElementById("btnNuevaReserva").addEventListener("click", () => {
     document.getElementById("formContainer").style.display = "block";
     cargarSelectorMesas();
+    document.getElementById("idMesaAsignada").disabled = false;
+    document.getElementById("formReserva").removeAttribute("data-edit-id");
   });
 
   //abrir formulario //
@@ -391,14 +401,7 @@ if (reserva.ocasionEspecial) {
         r.estado !== "Cancelada" &&
         r.estado !== "Finalizada"
     );
-    if (reservaSolapada) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "La mesa ya está ocupada en esa fecha y hora",
-      });
-      return;
-    }
+    
 
     const nuevaReserva = {
       idReserva: crypto.randomUUID(),
