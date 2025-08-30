@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         document.body.appendChild(titulo);
         document.body.appendChild(contenedor);
-        document.body.appendChild(botonVolver);
+        
     });
 });
 
