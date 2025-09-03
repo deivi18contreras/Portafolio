@@ -280,12 +280,12 @@ document.addEventListener("click", (e) => {
     }
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(reservas));
-    return true;
+    return true; 
   }
 
   document.getElementById("btnNuevaReserva").addEventListener("click", () => {
     document.getElementById("formContainer").style.display = "block";
-    cargarSelectorMesas();
+   cargarSelectorMesas(); 
     document.getElementById("idMesaAsignada").disabled = false;
     document.getElementById("formReserva").removeAttribute("data-edit-id");
   });
