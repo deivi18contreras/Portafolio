@@ -11,20 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = "mesas_restaurante_v1";
   const RESERVAS_KEY = "reservas_restaurante_v1";
 
-  // 🔹 Inicializar mesas por defecto si no existen
- /*  function inicializarMesas() {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      const mesasPorDefecto = [
-        { numero: "1", capacidad: 2, lugar: "Jardín", estado: "Disponible" },
-        { numero: "2", capacidad: 4, lugar: "Piscina", estado: "Disponible" },
-        { numero: "3", capacidad: 4, lugar: "Terraza", estado: "Disponible" },
-        { numero: "4", capacidad: 6, lugar: "Salón", estado: "Disponible" }
-      ];
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(mesasPorDefecto));
-    }
-  }
-  inicializarMesas(); */
-
   function obtenerMesas() {
     const mesasGuardadas = localStorage.getItem(STORAGE_KEY);
     return mesasGuardadas ? JSON.parse(mesasGuardadas) : [];
@@ -107,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lista.appendChild(card);
     });
 
-    // 🔹 Reservar
+    // Botones reservar
     document.querySelectorAll('.btn-reservar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const numeroMesa = e.target.getAttribute('data-mesa');
@@ -121,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // 🔹 Editar
+    // Botones editar
     document.querySelectorAll('.btn-editar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
@@ -139,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // 🔹 Eliminar
+    // Botones eliminar
     document.querySelectorAll('.btn-eliminar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
@@ -187,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById("numero").addEventListener("input", function () {
     this.value = this.value.replace(/\D/g, "");
   });
+
   document.getElementById("capaMesa").addEventListener("input", function () {
     this.value = this.value.replace(/\D/g, "");
   });
@@ -213,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mesas = obtenerMesas();
 
-    if (editIndex !== null) {
+    if (editIndex !== null && editIndex !== "") {
       mesas[editIndex] = { numero, capacidad, lugar, estado };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(mesas));
       Swal.fire("Actualizado", "Mesa actualizada correctamente", "success");

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 * {
@@ -8,12 +7,11 @@
 }
 
 body {
-  background: linear-gradient(180deg, #0a0f1f, #000);
-  color: #fff;
+  background: linear-gradient(180deg, #efe6dd, #d7c7b8); /* Beige cálido */
+  color: #4a3c31; /* Marrón oscuro */
   font-family: 'Orbitron', sans-serif;
   line-height: 1.6;
 }
-
 
 header {
   text-align: center;
@@ -22,15 +20,14 @@ header {
 
 header h1 {
   font-size: 3rem;
-  color: #00ff88;
-  text-shadow: 0 0 15px #00ff88;
+  color: #7a5c42; /* Marrón medio */
+  text-shadow: 0 0 8px #7a5c42;
 }
 
 header p {
   font-size: 1.2rem;
-  color: rgba(0, 255, 136, 0.8);
+  color: rgba(122, 92, 66, 0.8);
 }
-
 
 .botones {
   display: flex;
@@ -41,46 +38,46 @@ header p {
 
 .primary, .dos, .secondary {
   background: transparent;
-  border: 1px solid #00ff88;
-  color: #00ff88;
+  border: 1.5px solid #8c6a43; /* Verde oliva oscuro */
+  color: #8c6a43;
   padding: 10px 25px;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .primary:hover, .dos:hover, .secondary:hover {
-  background: #00ff88;
-  color: #000;
-  box-shadow: 0 0 20px #00ff88;
+  background: #8c6a43;
+  color: #efe6dd;
+  box-shadow: 0 0 15px #8c6a43;
 }
 
-
- .modal-body input, 
+.modal-body input, 
 #lugarMesa, 
-textarea {
-  background: rgba(0, 255, 136, 0.05);
-  border: 1px solid #00ff88;
+textarea, #estadoMesa{
+  background: rgba(140, 106, 67, 0.1);
+  border: 1px solid #8c6a43;
   padding: 10px;
   width: 100%;
   border-radius: 10px;
   font-size: 1rem;
   margin-bottom: 10px;
-} 
+  color: #4a3c31;
+}
 
 .modal-body input::placeholder,
 #lugarMesa::placeholder,
 textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(74, 60, 49, 0.6);
 }
 
 .modal-body input:focus, 
 #lugarMesa:focus, 
 textarea:focus {
   outline: none;
-  box-shadow: 0 0 10px #00ff88;
+  box-shadow: 0 0 10px #8c6a43;
 }
-
 
 .lista-mesas {
   display: flex;
@@ -91,53 +88,51 @@ textarea:focus {
   margin-top: 20px;
 }
 
-
 .estado-disponible {
-  background: rgba(0, 255, 136, 0.1);
-  color: #00ff88;
+  background: rgba(140, 170, 111, 0.2); /* Verde suave */
+  color: #556b2f; /* Verde oscuro */
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 15px;
-  border: 1px solid #00ff88;
+  border: 1px solid #556b2f;
 }
 
 .estado-ocupada {
-  background: rgba(255, 0, 0, 0.1);
-  color: #ff4d4d;
+  background: rgba(204, 102, 102, 0.2); /* Rojo suave */
+  color: #a33a3a;
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 15px;
-  border: 1px solid #ff4d4d;
+  border: 1px solid #a33a3a;
 }
 
 .estado-deshabilitada {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ccc;
+  background: rgba(150, 150, 150, 0.2);
+  color: #7a7a7a;
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 15px;
-  border: 1px solid #777;
+  border: 1px solid #7a7a7a;
 }
 
-
 .mesa-card {
-  background: rgb(212, 13, 13, 0.03);
+  background: rgba(140, 106, 67, 0.1);
   border-radius: 10px;
-  color: white;
+  color: #4a3c31;
   padding: 20px;
   margin: 15px 0;
   width: 220px;
   text-align: center;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 .mesa-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 15px #00ff88;
-  border: 1px solid #00ff88;
+  box-shadow: 0 0 15px #8c6a43;
+  border: 1px solid #8c6a43;
 }
-
 
 .botones-mesa {
   margin-top: 15px;
@@ -150,5 +145,18 @@ textarea:focus {
 .botones-mesa .btn {
   flex: 1;
   min-width: 80px;
+  background-color: transparent;
+  border: 1.5px solid #8c6a43;
+  color: #8c6a43;
+  border-radius: 25px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 600;
+}
+
+.botones-mesa .btn:hover {
+  background-color: #8c6a43;
+  color: #efe6dd;
 }
 

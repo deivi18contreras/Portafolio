@@ -17,7 +17,7 @@
     <a href="index.html" class="btn btn-secondary">← Volver</a>
   </div>
 
-  <!-- Filtros -->
+  <!-- Filtros para la lista de reservas -->
   <div class="container my-3 d-flex gap-2">
     <input type="date" id="filtroFecha" class="form-control" />
     <select id="filtroEstado" class="form-control">
@@ -28,18 +28,27 @@
       <option value="Finalizada">Finalizada</option>
       <option value="No Show">No Show</option>
     </select>
-    <button id="btnFiltrar" class="btn btn-info">Filtrar</button>
     <button id="btnLimpiarFiltros" class="btn btn-secondary">Limpiar</button>
   </div>
 
-  <!-- Formulario -->
+  <!-- Formulario de reserva -->
   <div id="formContainer" style="display: none; max-width: 600px; margin: auto;">
+    <!-- Filtros para buscar mesas disponibles (solo para nuevas reservas) -->
+    <div id="filtrosBusquedaMesas" style="display: none;" class="mb-3 p-3 border rounded">
+      <h6>Buscar mesas disponibles</h6>
+      <div class="d-flex gap-2">
+        <input type="date" id="fechaBusqueda" class="form-control" />
+        <input type="time" id="horaBusqueda" class="form-control" />
+        <button id="btnBuscarMesas" class="btn btn-info">Buscar</button>
+      </div>
+    </div>
+    
     <form id="formReserva">
-      <input type="text" id="nombreCliente" class="form-control mb-3" placeholder="Nombre del Cliente" />
-      <input type="text" id="apellidoCliente" class="form-control mb-3" placeholder="Apellido del Cliente" />
-      <input type="number" id="numeroPersonas" class="form-control mb-3" placeholder="Número de Personas" />
-      <input type="date" id="fechaReserva" class="form-control mb-3" />
-      <input type="time" id="horaReserva" class="form-control mb-3" />
+      <input type="text" id="nombreCliente" class="form-control mb-3" placeholder="Nombre del Cliente" required />
+      <input type="text" id="apellidoCliente" class="form-control mb-3" placeholder="Apellido del Cliente" required />
+      <input type="number" id="numeroPersonas" class="form-control mb-3" placeholder="Número de Personas" min="1" required />
+      <input type="date" id="fechaReserva" class="form-control mb-3" required />
+      <input type="time" id="horaReserva" class="form-control mb-3" required />
 
       <!-- Select de Ocasión especial -->
       <select id="ocasionEspecial" class="form-control mb-3">
@@ -51,17 +60,16 @@
         <option value="Graduación">Graduación</option>
         <option value="Bautizo">Bautizo</option>
         <option value="Boda">Boda</option>
-      
       </select>
 
       <input type="text" id="notasAdicionales" class="form-control mb-3" placeholder="Notas Adicionales (opcional)" />
 
       <!-- Select dinámico de Mesa -->
-      <select id="idMesaAsignada" class="form-control mb-3">
+      <select id="idMesaAsignada" class="form-control mb-3" required>
         <option value="" disabled selected>Selecciona una mesa disponible</option>
       </select>
 
-      <select id="estado" class="form-control mb-3">
+      <select id="estado" class="form-control mb-3" required>
         <option value="" disabled selected>Estado</option>
         <option value="Pendiente">Pendiente</option>
         <option value="Confirmada">Confirmada</option>
@@ -69,16 +77,16 @@
         <option value="Finalizada">Finalizada</option>
         <option value="No Show">No Show</option>
       </select>
+      
       <button type="submit" class="btn btn-success w-100">Guardar Reserva</button>
       <button type="button" id="btnCancelar" class="btn btn-danger w-100 mt-2">Cancelar</button>
-
     </form>
   </div>
 
-  <div id="listaReservas"></div>
+  <!-- Lista de reservas -->
+  <div id="listaReservas" class="container mt-4"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="reservas.js"></script>
 </body>
 </html>
-
