@@ -1,81 +1,12 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: linear-gradient(180deg, #0a0f1f, #000);
-  color: #fff;
+  background: linear-gradient(180deg, #efe6dd, #d7c7b8);
+  color: #4a3c31;
   font-family: 'Orbitron', sans-serif;
-  line-height: 1.6;
 }
 
-.row{  
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.card-text2 {
-  white-space: nowrap;
-}
-
-.card-text7{
-  white-space: nowrap;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Encabezado */
 header {
   text-align: center;
   padding: 2rem 0;
@@ -83,73 +14,71 @@ header {
 
 header h1 {
   font-size: 3rem;
-  color: #00ff88;
-  text-shadow: 0 0 15px #00ff88;
+  color: #7a5c42; /* Marrón medio */
+  text-shadow: 0 0 12px rgba(122, 92, 66, 0.7);
 }
 
-
+/* Botones */
 .btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info {
   background: transparent !important;
-  border: 1px solid #00ff88 !important;
-  color: #00ff88 !important;
+  border: 1.5px solid #8c6a43 !important; /* Marrón cálido */
+  color: #8c6a43 !important;
   border-radius: 30px !important;
   transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .btn:hover {
-  background: #00ff88 !important;
-  color: #000 !important;
-  box-shadow: 0 0 20px #00ff88;
+  background: #8c6a43 !important;
+  color: #efe6dd !important;
+  box-shadow: 0 0 15px #8c6a43;
 }
 
-
+/* Contenedor formulario */
 #formContainer {
-  background: rgba(255, 255, 255, 0.03);
-  color: black;
-  border-radius: 10px;
+  background: rgba(140, 106, 67, 0.08);
+  color: #4a3c31;
+  border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+  border: 1px solid #c4a484;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* Inputs y selects */
 #formReserva input,
-#formReserva textarea {
-  background: rgba(0, 255, 136, 0.05);
-  color: #ffffff;
-  border: 1px solid #00ff88;
+#formReserva textarea,
+#formReserva select {
+  background: rgba(140, 106, 67, 0.1);
+  color: #4a3c31;
+  border: 1.5px solid #c4a484;
   padding: 10px;
   width: 100%;
   border-radius: 10px;
   font-size: 1rem;
   margin-bottom: 10px;
-} 
-#formReserva select{
-  background: rgba(0, 255, 136, 0.05);
-  color: #ffffff;
-  border: 1px solid #00ff88;
-  padding: 10px;
-  width: 100%;
-  border-radius: 10px;
-  font-size: 1rem;
-  margin-bottom: 10px;
+  transition: all 0.3s ease;
 }
-#formReserva select option{
-  background: #000;
-  color: #fff;
+
+#formReserva select option {
+  background: #efe6dd;
+  color: #4a3c31;
 }
 
 #formReserva input::placeholder,
 #formReserva textarea::placeholder {
-  color: rgba(255, 255, 255, 0.526);
+  color: rgba(74, 60, 49, 0.6);
 }
 
 #formReserva input:focus,
 #formReserva select:focus,
 #formReserva textarea:focus {
   outline: none;
-  box-shadow: 0 0 10px #00ff88;
+  border-color: #8c6a43;
+  box-shadow: 0 0 8px rgba(140, 106, 67, 0.4);
+  background: rgba(140, 106, 67, 0.15);
 }
 
-
+/* Lista de reservas */
 #listaReservas {
   display: flex;
   flex-wrap: wrap;
@@ -159,52 +88,81 @@ header h1 {
   margin-top: 20px;
 }
 
+/* Tarjetas */
 .card {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
-  width: 350px;
+  background: rgba(140, 106, 67, 0.1);
+  border-radius: 12px;
+  width: 340px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  color: #4a3c31;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 15px #00ff88;
-  border: 1px solid #00ff88;
+  box-shadow: 0 0 15px #8c6a43;
+  border: 1px solid #8c6a43;
 }
 
+/* Estados (badge) */
 .badge {
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: white;
-} 
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 
+.badge-pendiente {
+  background: rgba(204, 170, 102, 0.2);
+  color: #a37a2a;
+  border: 1px solid #a37a2a;
+}
 
+.badge-confirmada {
+  background: rgba(140, 170, 111, 0.2);
+  color: #556b2f;
+  border: 1px solid #556b2f;
+}
+
+.badge-cancelada {
+  background: rgba(204, 102, 102, 0.2);
+  color: #a33a3a;
+  border: 1px solid #a33a3a;
+}
+
+.badge-finalizada {
+  background: rgba(120, 120, 120, 0.2);
+  color: #555;
+  border: 1px solid #555;
+}
+
+/* Ocasión especial */
 .ocasion-especial-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f0fff8;
-  border: 2px dashed #00c97e;
+  background: rgba(140, 106, 67, 0.08);
+  border: 2px dashed #8c6a43;
   border-radius: 15px;
   padding: 10px;
   margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0, 201, 126, 0.2);
-}  
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
 .ocasion-especial-container img {
   width: 250px;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
-  border: 3px solid #00ff88;
+  border: 3px solid #8c6a43;
   margin-bottom: 10px;
 }
 
 .ocasion-especial-container p {
-  font-size: 50px;
-  color: #00aa66;
+  font-size: 1.2rem;
+  color: #7a5c42;
   font-weight: bold;
   margin: 0;
 }
