@@ -12,6 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
     return data ? JSON.parse(data) : [];
   }
 
+  function obtenerSiguienteId() {
+    const reservas = obtenerReservas();
+    if (reservas.length === 0) {
+      return 1000;
+    }
+    const ultimoId = Math.max(...reservas.map(r => parseInt(r.idReserva)));
+    return ultimoId + 1;
+  }
+
   function actualizarEstadoMesa(numeroMesa, nuevoEstado) {
     const mesas = obtenerMesas();
     const mesaIndex = mesas.findIndex((m) => m.numero === numeroMesa);
@@ -441,7 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       } else {
         const nuevaReserva = {
-          idReserva: crypto.randomUUID(),
+          idReserva: obtenerSiguienteID(),
           nombreCliente,
           apellidoCliente,
           numeroPersonas: parseInt(numeroPersonas),
