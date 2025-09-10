@@ -413,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   pintarReservas();
 
-  // 🔹 Botón Cancelar
+
   const btnCancelar = document.getElementById("btnCancelar");
   if (btnCancelar) {
     btnCancelar.addEventListener("click", () => {
