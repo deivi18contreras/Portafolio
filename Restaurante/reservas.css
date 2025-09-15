@@ -22,7 +22,7 @@ header h1 {
 .btn, .btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-danger, .btn-info {
   background: transparent !important;
   border: 1.5px solid #8c6a43 !important; /* Marrón cálido */
-  color: #8c6a43 !important;
+  color: #141414 !important;
   border-radius: 30px !important;
   transition: all 0.3s ease;
   font-weight: 600;
@@ -43,6 +43,7 @@ header h1 {
   border: 1px solid #c4a484;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 
 /* Inputs y selects */
 #formReserva input,
@@ -92,7 +93,8 @@ header h1 {
 .card {
   background: rgba(140, 106, 67, 0.1);
   border-radius: 12px;
-  width: 340px;
+  width: 400px;
+
   transition: all 0.3s ease;
   border: 1px solid transparent;
   color: #4a3c31;
@@ -152,7 +154,7 @@ header h1 {
 }
 
 .ocasion-especial-container img {
-  width: 250px;
+  width: 350px;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;

@@ -16,48 +16,44 @@
     <div class="botones">
       <button class="primary" id="btnAgregar">Agregar mesa</button>
       <button class="dos" id="btnReservas">Reservas</button>
-
     </div>
   </div>
 
   <div id="listaMesas" class="lista-mesas"></div>
 
-  <!-- Modal -->
-  <!-- Modal -->
-<div class="modal fade" id="miModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <!-- Modal para agregar/editar mesa -->
+  <div class="modal fade" id="miModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
-      <div class="modal-body">
-        <h3>Información de la mesa</h3>
-        <input type="text" id="numero" placeholder="Digite el número de la mesa" required>
-        <input type="text" id="capaMesa" placeholder="Capacidad de personas en la mesa">
+        <div class="modal-body">
+          <h3>Información de la mesa</h3>
+          <input type="text" id="numero" placeholder="Digite el número de la mesa" required>
+          <input type="text" id="capaMesa" placeholder="Capacidad de personas en la mesa">
 
-        <select id="lugarMesa">
-          <option value="" disabled selected>Ubicación de la mesa</option>
-          <option value="jardin">Jardín</option>
-          <option value="piscina">Piscina</option>
-          <option value="terraza">Terraza</option>
-          <option value="salon">Salón</option>
-        </select>
+          <select id="lugarMesa">
+            <option value="" disabled selected>Ubicación de la mesa</option>
+            <option value="jardín">Jardín</option>
+            <option value="piscina">Piscina</option>
+            <option value="terraza">Terraza</option>
+            <option value="salón">Salón</option>
+          </select>
 
-      <!-- 🔹 Select corregido para el estado de la mesa -->                                                                                                                                                                          
-        <select id="estadoMesa">
-          <option value="Disponible">Disponible</option>
-          <option value="Ocupada">Ocupada</option>
-          <option value="Deshabilitada">Deshabilitada</option>
-        </select>
+          <select id="estadoMesa">
+            <option value="Disponible">Disponible</option>
+            <option value="Ocupada">Ocupada</option>
+            <option value="Deshabilitada">Deshabilitada</option>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="primary" id="btnGuardar">Guardar mesa registrada</button>
+        </div>
+
       </div>
-
-      <div class="modal-footer">
-        <button type="button" class="secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="primary" id="btnGuardar">Guardar mesa registrada</button>
-      </div>
-
     </div>
   </div>
-</div>
-
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

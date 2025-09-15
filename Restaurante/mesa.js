@@ -1,47 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.createElement('header');
-  const h1 = document.createElement('h1');
-  h1.textContent = 'Bienvenidos al restaurante Doña Teresa';
-  const p = document.createElement('p');
-  p.textContent = 'Vivan una experiencia inolvidable con nosotros';
-  header.appendChild(h1);
-  header.appendChild(p);
-  document.body.insertBefore(header, document.querySelector('.contenedor'));
-
   const STORAGE_KEY = "mesas_restaurante_v1";
   const RESERVAS_KEY = "reservas_restaurante_v1";
 
   function obtenerMesas() {
     const mesasGuardadas = localStorage.getItem(STORAGE_KEY);
     return mesasGuardadas ? JSON.parse(mesasGuardadas) : [];
-  }
-
-  function obtenerReservas() {
-    const reservasGuardadas = localStorage.getItem(RESERVAS_KEY);
-    return reservasGuardadas ? JSON.parse(reservasGuardadas) : [];
-  }
-
-  function actualizarEstadoMesa(numeroMesa, nuevoEstado) {
-    const mesas = obtenerMesas();
-    const mesaIndex = mesas.findIndex(m => m.numero === numeroMesa);
-    if (mesaIndex !== -1) {
-      mesas[mesaIndex].estado = nuevoEstado;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(mesas));
-      pintarMesas();
-    }
-  }
-
-  function verificarEstadoMesa(numeroMesa) {
-    const reservas = obtenerReservas();
-    const hoy = new Date().toISOString().split('T')[0];
-
-    const reservaActiva = reservas.find(r =>
-      r.idMesaAsignada === numeroMesa &&
-      r.fechaReserva >= hoy &&
-      (r.estado === 'Confirmada' || r.estado === 'Pendiente')
-    );
-
-    return reservaActiva ? 'Ocupada' : 'Disponible';
   }
 
   function guardarMesa(mesa) {
@@ -61,14 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     mesas.forEach((mesa, index) => {
-      const estadoActual = verificarEstadoMesa(mesa.numero);
-      if (estadoActual !== mesa.estado && mesa.estado !== "Deshabilitada") {
-        mesa.estado = estadoActual;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(mesas));
-      }
-
       const card = document.createElement('div');
-      card.classList.add('mesa-card');
+      card.classList.add('mesa-card', 'mb-3', 'p-3', 'border');
 
       let estadoClass = "estado-disponible";
       if (mesa.estado.toLowerCase() === "ocupada") {
@@ -93,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lista.appendChild(card);
     });
 
-    // Botones reservar
+    // Botón Reservar
     document.querySelectorAll('.btn-reservar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const numeroMesa = e.target.getAttribute('data-mesa');
@@ -107,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Botones editar
+    // Editar mesa
     document.querySelectorAll('.btn-editar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
@@ -120,18 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("estadoMesa").value = mesa.estado;
         document.getElementById("numero").setAttribute('data-edit-index', index);
 
-        if (!modalInstance) modalInstance = new bootstrap.Modal(miModalEl);
+        const miModalEl = document.getElementById('miModal');
+        const modalInstance = new bootstrap.Modal(miModalEl);
         modalInstance.show();
       });
     });
 
-    // Botones eliminar
+    // Eliminar mesa
     document.querySelectorAll('.btn-eliminar').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const index = e.target.getAttribute('data-index');
         const mesas = obtenerMesas();
         const mesaNumero = mesas[index].numero;
-
         Swal.fire({
           title: `¿Eliminar la mesa ${mesaNumero}?`,
           text: "Esta acción no se puede deshacer.",
@@ -184,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lugar = document.getElementById("lugarMesa").value.trim();
     const estado = document.getElementById("estadoMesa").value.trim();
     const editIndex = document.getElementById("numero").getAttribute("data-edit-index");
+    const mesas = obtenerMesas();
 
     if (!numero) {
       Swal.fire({ icon: "error", title: "Oops...", text: "Debes ingresar el número de la mesa" });
@@ -197,8 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
       Swal.fire({ icon: "error", title: "Oops...", text: "Debes ingresar la ubicación de la mesa" });
       return;
     }
-
-    const mesas = obtenerMesas();
 
     if (editIndex !== null && editIndex !== "") {
       mesas[editIndex] = { numero, capacidad, lugar, estado };
@@ -225,4 +181,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   pintarMesas();
 });
-
