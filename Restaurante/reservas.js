@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_KEY = "reservas_restaurante_v1";
   const MESAS_KEY = "mesas_restaurante_v1";
+const reservaModal = new bootstrap.Modal(document.getElementById('formReservaModal'));
 
   function obtenerReservas() {
     const data = localStorage.getItem(STORAGE_KEY);
