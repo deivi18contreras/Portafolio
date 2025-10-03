@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+     margin: 0;
+}
+
+body {
+     font-family: "Quantico", sans-serif;
+     background: linear-gradient(#744a3e55);
+}
+     
+/* principal */
+
+.titulo{
+     font-family: "Quantico", sans-serif;
+     font-size: 50px;
+     font-weight: 600;
+     color: #4a3c31;
+}
+/* titulo modal */
+#modalMesaLabel {
+     color: #4a3c31;
+     font-family: "Quantico", sans-serif;
+     font-size: 30px;
+}
+
+/*modal */
+.modal #lugarMesa,
+#capMesa,
+#estadoMesa {
+     background: rgba(140, 106, 67, 0.1);
+     border: 1px solid #8c6a43;
+     padding: 10px;
+     width: 100%;
+     border-radius: 10px;
+     font-size: 1rem;
+     margin-bottom: 10px;
+     color: #4a3c31;
+}
+#lugarMesa::placeholder,
+#capMesa::placeholder {
+  color: rgba(74, 60, 49, 0.6);
+}
+ 
+#lugarMesa:focus, 
+#capMesa:focus {
+  outline: none;
+  box-shadow: 0 0 10px #8c6a43;
+}
+
+/*Botones modal */
+
+button.btn-secondary {
+     background: #d2bfa9;
+     border: 1.5px solid #8c6a43;
+     color: #0f0e0e;
+     padding: 10px 25px;
+     border-radius: 30px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     font-weight: 600;
+}
+
+button.btn-primary {
+     background: #d2bfa9;
+     border: 1.5px solid #8c6a43;
+     color: #0f0e0e;
+     padding: 10px 25px;
+     border-radius: 30px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     font-weight: 600;
+}
+
+/* Contenedor de mesas */
+#mesasContainer {
+    display: flex;
+    flex-wrap: wrap;      
+    gap: 20px;             
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+/* Card de mesa */
+.mesa-card {
+    flex: 0 0 220px;       
+    background: rgba(59, 52, 45, 0.1);
+    border-radius: 10px;
+    color: #4a3c31;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-family: "Quantico", sans-serif; 
+}
+
+.mesa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #8c6a43;
+    border: 1px solid #8c6a43;
+}
+.mesa-card h4{
+ color: #000;
+}
+
+/* Estados */
+.estado-disponible {
+    background: rgba(140, 170, 111, 0.2);
+    color: #556b2f;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 1px solid #556b2f;
+}
+
+.estado-ocupada {
+    background: rgba(204, 102, 102, 0.2);
+    color: #a33a3a;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 1px solid #a33a3a;
+}
+
+.estado-deshabilitada {
+    background: rgba(150, 150, 150, 0.2);
+    color: #7a7a7a;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 1px solid #7a7a7a;
+}
+
+/* Botones dentro de cada card */
+.botones-mesa {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.botones-mesa .btn {
+    flex: 1;
+    min-width: 80px;
+    background-color: transparent;
+    border: 1.5px solid #8c6a43;
+    color: #141414;
+    border-radius: 25px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 600;
+}
+
+.botones-mesa .btn:hover {
+    background-color: #8c6a43;
+    color: #efe6dd;
+}

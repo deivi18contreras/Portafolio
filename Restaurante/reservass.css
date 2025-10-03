@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset y tipografía */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #fdf6f0, #f0e6dc);
+    color: #333;
+}
+
+/* Encabezado */
+.titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    color: #7b4f36;
+    margin: 2rem 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Contenedor de reservas/cards */
+#mesasContainer {
+    display: flex;
+    flex-wrap: wrap;      
+    gap: 15px;             
+    justify-content: center; 
+    margin: 20px auto;
+}
+
+/* Card de mesa */
+.mesa-card {
+    flex: 0 0 220px;       
+    background: #fff;
+    border-radius: 15px;
+    color: #222;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.mesa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 1px solid #d4a373;
+}
+
+.mesa-card h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Estados */
+.estado-disponible {
+    background: #d0f0c0;
+    color: #2e7d32;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 12px;
+    border: 1px solid #2e7d32;
+    font-size: 0.9rem;
+}
+
+.estado-ocupada {
+    background: #ffcdd2;
+    color: #c62828;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 12px;
+    border: 1px solid #c62828;
+    font-size: 0.9rem;
+}
+
+/* Botones dentro de cada card */
+.botones-mesa {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.botones-mesa .btn {
+    flex: 1;
+    min-width: 80px;
+    background-color: #fff;
+    border: 1.5px solid #d4a373;
+    color: #7b4f36;
+    border-radius: 25px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.botones-mesa .btn:hover {
+    background-color: #d4a373;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Modal */
+.modal-content {
+    background: #fff8f2;
+    border-radius: 15px;
+    border: none;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #7b4f36;
+    font-size: 1.8rem;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    background: #fff5ee;
+    border: 1px solid #d4a373;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+    outline: none;
+    border-color: #d4a373;
+    box-shadow: 0 0 10px rgba(212,163,115,0.4);
+    background: #fff2e6;
+}
+
+/* Botones modal */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: none;
+}
+
+.modal-footer .btn-primary {
+    background-color: #d4a373;
+    color: #fff;
+    border: none;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #b36c4a;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #fff;
+    color: #7b4f36;
+    border: 1px solid #d4a373;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #d4a373;
+    color: #fff;
+}
