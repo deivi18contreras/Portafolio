@@ -802,11 +802,13 @@ body {
     .infor {
         grid-column: 1;
         grid-row: 1; 
+        height: 300px;
     }
     
     .datos {
         grid-column: 2;
         grid-row: 1;
+        height: 300px;
     }
     
     .inforExtra {
