@@ -209,8 +209,6 @@ body {
     right: 35px;
     width: 100%;
     height: 80px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     z-index: 100;
     display: flex;
     justify-content: flex-end;
@@ -594,85 +592,6 @@ body {
         transform: translateY(0);
     }
 }
-
-
-
-
-@media (max-width: 900px) and (min-width: 500px) {
-    .content {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        height: auto;  
-        padding-top: 80px; 
-    }
-    
-    .infor {
-        grid-column: 1;
-        grid-row: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .datos {
-        grid-column: 2;
-        grid-row: 1;
-    }
-    
-    .inforExtra {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .tipos, .debilidades {
-        flex: 1;
-        margin: 0 10px;
-    }
-    
-    .estadisticas {
-        grid-column: 1 / -1;
-        grid-row: 3;
-        height: auto; 
-        max-height: none; 
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .stat-name {
-        width: 150px;
-        font-size: 16px;
-    }
-    
-    .infor h1 {
-        font-size: 28px;
-    }
-    
-    .img1 {
-        width: 150px;
-        height: 150px;
-        display: block; 
-        margin: 0 auto;
-    }
-    
-    .navegador {
-        max-width: 400px;
-    }
-    
-    .navegador input {
-        font-size: 16px;
-    }
-    
-    .navegador button {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
- 
 @media (max-width: 499px) and (min-width: 300px) {
     .content {
         grid-template-columns: 1fr;
@@ -790,7 +709,88 @@ body {
         min-width: 50px; 
     }
 }
-@media (max-width: 1440px) and (min-width: 1024px) {
+
+
+
+@media (max-width: 900px) and (min-width: 500px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;  
+        padding-top: 80px; 
+    }
+    
+    .infor {
+        margin-top:30px;
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .datos {
+        margin-top:45px;
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .inforExtra {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .tipos, .debilidades {
+        flex: 1;
+        margin: 0 10px;
+    }
+    
+    .estadisticas {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        height: auto; 
+        max-height: none; 
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-name {
+        width: 150px;
+        font-size: 16px;
+    }
+    
+    .infor h1 {
+        font-size: 28px;
+    }
+    
+    .img1 {
+        width: 150px;
+        height: 150px;
+        display: block; 
+        margin: 0 auto;
+    }
+    
+    .navegador {
+        max-width: 400px;
+    }
+    
+    .navegador input {
+        font-size: 16px;
+    }
+    
+    .navegador button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+ 
+
+@media (max-width: 1300px) and (min-width: 901px) {
     .content {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: auto auto;
@@ -801,7 +801,7 @@ body {
     
     .infor {
         grid-column: 1;
-        grid-row: 1;
+        grid-row: 1; 
     }
     
     .datos {
@@ -823,8 +823,8 @@ body {
     .estadisticas {
         grid-column: 1 / -1;
         grid-row: 2;
-        height: auto;
-        max-height: none;
+        height: 280px;
+        
     }
     
     .stats-grid {
