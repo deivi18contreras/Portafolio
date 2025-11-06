@@ -188,7 +188,6 @@ body {
     min-height: 100vh;
     padding: 0;
     position: relative;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,27 +199,23 @@ body {
     margin: 0;
     position: relative;
     z-index: 1;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 .top-bar {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 15px;
+    right: 35px;
     width: 100%;
     height: 80px;
-    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 100;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 20px;
-}
+} 
 
 .navegador {
     display: flex;
@@ -284,8 +279,8 @@ body {
     height: 100%;
     padding-top: 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr;
     grid-gap: 25px;
     padding-left: 30px;
     padding-right: 30px;
@@ -601,10 +596,207 @@ body {
 }
 
 
-@media (min-width: 901px) {
-    .content-area {
+
+
+@media (max-width: 900px) and (min-width: 500px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;  
+        padding-top: 80px; 
+    }
+    
+    .infor {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .datos {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .inforExtra {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .tipos, .debilidades {
+        flex: 1;
+        margin: 0 10px;
+    }
+    
+    .estadisticas {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        height: auto; 
+        max-height: none; 
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-name {
+        width: 150px;
+        font-size: 16px;
+    }
+    
+    .infor h1 {
+        font-size: 28px;
+    }
+    
+    .img1 {
+        width: 150px;
+        height: 150px;
+        display: block; 
+        margin: 0 auto;
+    }
+    
+    .navegador {
+        max-width: 400px;
+    }
+    
+    .navegador input {
+        font-size: 16px;
+    }
+    
+    .navegador button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+ 
+@media (max-width: 499px) and (min-width: 300px) {
+    .content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        height: auto; 
+        padding: 60px 15px 15px; 
+    }
+    
+    .infor {
+        margin-top:20px;
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .datos {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .inforExtra {
+        grid-column: 1;
+        grid-row: 3;
+        flex-direction: column;
+    }
+    
+    .tipos, .debilidades {
+        width: 100%;
+        margin: 0 0 15px 0; 
+    }
+    
+    .estadisticas {
+        grid-column: 1;
+        grid-row: 4;
+        height: auto; 
+        max-height: none; 
+        padding: 20px 15px; 
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-name {
+        width: 120px;
+        font-size: 14px;
+    }
+    
+    .stat-bar-container {
+        margin: 0 10px;
+    }
+    
+    .stat-value {
+        font-size: 14px;
+    }
+    
+    .infor h1 {
+        font-size: 24px;
+    }
+    
+    .img1 {
+        width: 120px;
+        height: 120px;
+        display: block; 
+        margin: 0 auto; 
+    }
+    
+    .datos p {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+    
+    .tipos h1, .debilidades h1 {
+        font-size: 16px;
+    }
+    
+    .estadisticas h1 {
+        font-size: 22px;
+    }
+    
+    .navegador {
+        max-width: 300px;
+        padding: 10px 15px;
+    }
+    
+    .navegador input {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    
+    .navegador button {
+        padding: 8px 15px;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+    
+    .top-bar {
+        right: 15px;
+        height: 60px; 
+    }
+    
+    .infor, .datos, .tipos, .debilidades, .estadisticas {
+        padding: 20px;
+    }
+    
+
+    .stat-item {
+        margin-bottom: 15px;
+    }
+    
+    .stat-bar {
+        min-width: 50px; 
+    }
+}
+@media (max-width: 1440px) and (min-width: 1024px) {
+    .content {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto;
+        padding-left: 25px;
+        padding-right: 25px;
+        grid-gap: 20px;
     }
     
     .infor {
@@ -620,119 +812,37 @@ body {
     .inforExtra {
         grid-column: 3;
         grid-row: 1;
-    }
-    
-    .estadisticas {
-        grid-column: 1 / -1;
-        grid-row: 2;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-
-@media (max-width: 900px) and (min-width: 501px) {
-    .content-area {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-    }
-    
-    .infor {
-        grid-column: 1;
-        grid-row: 1;
-    }
-    
-    .datos {
-        grid-column: 2;
-        grid-row: 1;
-    }
-    
-    .inforExtra {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        flex-direction: row;
-        gap: 20px;
-    }
-    
-    .tipos, .debilidades {
-        flex: 1;
-    }
-    
-    .estadisticas {
-        grid-column: 1 / -1;
-        grid-row: 3;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .img1 {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-
-@media (max-width: 500px) and (min-width: 300px) {
-    .content-area {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    
-    .infor, .datos, .inforExtra, .estadisticas {
-        grid-column: 1;
-        grid-row: auto;
-    }
-    
-    .inforExtra {
         flex-direction: column;
     }
     
-    .navegador {
-        padding: 12px 20px;
-        max-width: 300px;
+    .tipos, .debilidades {
+        width: 100%;
+        margin-bottom: 15px;
     }
     
-    .navegador input {
-        font-size: 16px;
-    }
-    
-    .navegador button {
-        padding: 10px 20px;
-        font-size: 14px;
-        margin-left: 10px;
+    .estadisticas {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        height: auto;
+        max-height: none;
     }
     
     .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .stat-name {
-        width: 120px;
-        font-size: 16px;
-    }
-    
-    .stat-bar-container {
-        margin: 0 10px;
-    }
-    
-    .img1 {
-        width: 120px;
-        height: 120px;
+        grid-template-columns: 1fr 1fr;
     }
     
     .infor h1 {
-        font-size: 24px;
+        font-size: 28px;
+    }
+    
+    .img1 {
+        width: 180px;
+        height: 180px;
     }
     
     .datos p {
-        font-size: 18px;
-        padding: 10px 15px;
+        font-size: 20px;
+        padding: 12px 18px;
     }
     
     .tipos h1, .debilidades h1 {
@@ -740,7 +850,33 @@ body {
     }
     
     .estadisticas h1 {
-        font-size: 22px;
+        font-size: 24px;
+    }
+    
+    .stat-name {
+        width: 160px;
+        font-size: 16px;
+    }
+    
+    .stat-value {
+        font-size: 16px;
+    }
+    
+    .navegador {
+        max-width: 450px;
+    }
+    
+    .navegador input {
+        font-size: 16px;
+    }
+    
+    .navegador button {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    
+    .top-bar {
+        right: 25px;
     }
 }
 </style>
