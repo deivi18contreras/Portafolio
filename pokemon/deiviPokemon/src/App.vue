@@ -790,7 +790,7 @@ body {
 }
  
 
-@media (max-width: 1300px) and (min-width: 901px) {
+@media (max-width: 1400px) and (min-width: 901px) {
     .content {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: auto auto;
