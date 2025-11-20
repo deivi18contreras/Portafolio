@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap');
+
+body {
+  font-family: 'Quantico', sans-serif;
+  background: linear-gradient(45deg, #000, #0ff, #111, #f00);
+  background-size: 400% 400%;
+  animation: fondo 10s ease infinite;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #00ffff;
+  overflow: hidden;
+}
+
+@keyframes fondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.servidor {
+  text-align: right;
+  margin: 30px;
+  font-size: 1rem;
+  color: #0ff;
+  opacity: 0.8;
+}
+
+.inicio {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.titulo {
+  font-size: 110px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #161616;
+  text-shadow: 0 0 15px #00ffff;
+  animation: brillo 3s ease-in-out infinite;
+}
+
+@keyframes brillo {
+  0%, 100% { text-shadow: 0 0 10px #00ffff; }
+  50% { text-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff; }
+}
+
+#eslogan {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.final {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0ff;
+  opacity: 0.7;
+}
+
+.cargar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 40px;
+  color: #00ffff;
+  animation: vuelta 1.5s linear infinite;
+}
+
+@keyframes vuelta {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
