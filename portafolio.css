@@ -1,33 +1,70 @@
 /* ====== Fuente moderna ====== */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: linear-gradient(180deg, #0a0f1f, #000);
+  background: linear-gradient(135deg, #0a0f1f 0%, #1a1f36 50%, #0a0f1f 100%);
   color: #fff;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ====== Contenedor principal ====== */
+.partePrincipal {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
 }
 
 /* ====== Encabezado principal ====== */
 .parteUno {
   text-align: center;
-  padding: 2rem 0;
-  background: rgba(0, 0, 0, 0.2);
+  padding: 6rem 0 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.parteUno::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .uno {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  font-weight: 700;
   color: #00ff88;
-  text-shadow: 0 0 15px #00ff88;
+  text-shadow: 0 0 15px #00ff88, 0 0 30px rgba(0, 255, 136, 0.5);
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 15px #00ff88, 0 0 30px rgba(0, 255, 136, 0.5); }
+  to { text-shadow: 0 0 20px #00ff88, 0 0 40px rgba(0, 255, 136, 0.8); }
 }
 
 /* ====== Sección nombre y menú ====== */
@@ -36,17 +73,26 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(10, 15, 31, 0.85);
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   width: 100%;
-
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
 }
-
 
 .dos0 {
   font-size: 1.5rem;
   color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.botones {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .botones button {
@@ -54,78 +100,192 @@ body {
   border: 1px solid #00ff88;
   color: #00ff88;
   padding: 0.5rem 1.2rem;
-  margin: 0 0.5rem;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.botones button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.botones button:hover::before {
+  left: 100%;
 }
 
 .botones button:hover {
-  background: #00ff88;
-  color: #000;
-  box-shadow: 0 0 20px #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  transform: translateY(-2px);
 }
 
 /* ====== Sección perfil y descripción ====== */
+.parteDos {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.parteDos::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 255, 136, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
 .parteDos1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
   padding: 2rem 3rem;
-  flex-wrap: wrap; /* Para que en pantallas pequeñas se acomode */
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .Perfil {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   background: url('./avatar.jpg') center/cover no-repeat;
   border-radius: 50%;
   border: 3px solid #00ff88;
-  box-shadow: 0 0 20px #00ff88;
-  flex-shrink: 0; /* Mantiene tamaño */
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.Perfil::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), transparent);
+  border-radius: 50%;
+}
+
+.descripcion {
+  max-width: 500px;
 }
 
 .descripcion ul {
   list-style: none;
-  max-width: 400px;
 }
 
 .descripcion li {
-  background: rgba(255, 255, 255, 0.03);
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
   border-left: 3px solid #00ff88;
+  border-radius: 0 8px 8px 0;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.descripcion li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.descripcion li:hover::before {
+  left: 100%;
+}
+
+.descripcion li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
 }
 
 /* ====== Sección proyectos ====== */
 .parteTres {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 3rem;
+  position: relative;
+}
+
+.parteTres::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 255, 136, 0.03), transparent 70%);
+  pointer-events: none;
 }
 
 .parteTres div {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 1rem;
+  transition: all 0.3s ease;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.parteTres div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.parteTres div:hover::before {
+  opacity: 1;
 }
 
 .parteTres div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px #00ff88;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+  border-color: rgba(0, 255, 136, 0.3);
 }
 
 .parteTres h1 {
   font-size: 1.5rem;
   padding: 0.5rem;
   color: #00ff88;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .parteTres img {
@@ -134,174 +294,207 @@ body {
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #00ff88;
-  box-shadow: 0 0 15px #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
   margin: 1rem 0;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.parteTres div:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
 }
 
 .parteTres button {
   background: transparent;
   border: 1px solid #00ff88;
   color: #00ff88;
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.5rem;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 500;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.parteTres button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.parteTres button:hover::before {
+  left: 100%;
 }
 
 .parteTres button:hover {
-  background: #00ff88;
-  color: #000;
-  box-shadow: 0 0 20px #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  transform: translateY(-2px);
 }
 
 /* ====== Iconos redes ====== */
 .iconos {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.iconos::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 255, 136, 0.05), transparent 70%);
+  pointer-events: none;
 }
 
 .iconos a {
   color: #00ff88;
-  margin: 0 1rem;
-  font-size: 2rem;
+  margin: 0 1.5rem;
+  font-size: 2.5rem;
   transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.iconos a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 255, 136, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.iconos a:hover::before {
+  width: 60px;
+  height: 60px;
 }
 
 .iconos a:hover {
   color: #fff;
   text-shadow: 0 0 15px #00ff88;
+  transform: translateY(-5px);
 }
 
-
-
+/* ====== Responsive Design ====== */
 @media (min-width: 300px) and (max-width: 499px) {
-    ul {
-        margin-top: 20px;
-    }
-
-    .parteTres {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .proyec1,
-    .proyec2,
-    .proyec3 {
-        width: 95%;
-        margin: 0;
-    }
-
-    .imgpr,
-    .imgpr2,
-    .imgpr3 {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-    }
-
-    .dos {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .parteDos1 {
-        flex-direction: column;
-        margin: 10px;
-    }
-
-    .Perfil {
-        width: 100%;
-    }
-
-    .uno {
-        font-size: 28px;
-    }
-
-    .dos0 {
-        font-size: 20px;
-    }
-
-    .bot1,
-    .bot2,
-    .bot3 {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+  .parteUno {
+    padding-top: 5rem;
+  }
+  
+  .uno {
+    font-size: 2rem;
+  }
+  
+  .dos {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .dos0 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .botones {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .botones button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .parteDos1 {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .Perfil {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .descripcion li {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .parteTres {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  
+  .parteTres img {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .iconos a {
+    font-size: 2rem;
+    margin: 0 1rem;
+  }
 }
 
 @media (min-width: 500px) and (max-width: 700px) {
-    ul {
-        margin-top: 20px;
-    }
-
-    .parteTres {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-    }
-
-    .proyec1,
-    .proyec2,
-    .proyec3 {
-        margin: 0;
-        width: 90%;
-    }
-
-    .dos {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .parteDos1 {
-        flex-direction: column;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
+  .uno {
+    font-size: 2.5rem;
+  }
+  
+  .dos {
+    padding: 1rem 2rem;
+  }
+  
+  .dos0 {
+    font-size: 1.3rem;
+  }
+  
+  .parteDos1 {
+    gap: 2rem;
+  }
+  
+  .Perfil {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .parteTres {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
 }
 
 @media (min-width: 701px) and (max-width: 1100px) {
-
-
-
-    .dos {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-
-    }
-
-.dos0{
-    font-size: 15px;
-}
-
-    .botones {
-        display: flex;
-        gap: 5px;
-        font-size: 10px;
-    }
-
-    .botones button {
-        white-space: nowrap;
-    }
-
-    .parteTres {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .proyec1,
-    .proyec2,
-    .proyec3 {
-        margin-left: 0;
-        margin-right: 0;
-        width: 70%;
-    }
+  .parteTres {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+  }
+  
+  .dos0 {
+    font-size: 1.4rem;
+  }
+  
+  .botones button {
+    padding: 0.5rem 1rem;
+  }
 }
