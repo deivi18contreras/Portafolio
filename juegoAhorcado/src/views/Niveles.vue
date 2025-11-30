@@ -2,14 +2,14 @@
   <q-page class="niveles-page">
 
     <div class="niveles-title">
-      <h1>Elige el Nivel</h1>
+      <h1>Elige un nivel</h1>
     </div>
 
     <div class="niveles-grid">
 
       <div class="nivel-card facil" @click="seleccionar('facil')">
         <h2>Fácil</h2>
-        <p>Palabras cortas</p>
+        <p>Ideal para comenzar</p>
       </div>
 
       <div class="nivel-card medio" @click="seleccionar('medio')">
@@ -29,7 +29,6 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-
 const router = useRouter();
 
 function seleccionar(nivel) {
@@ -38,9 +37,8 @@ function seleccionar(nivel) {
 }
 </script>
 
-<style scoped>
 
-
+<style>
 .niveles-page {
   min-height: 100vh;
   padding: 40px 20px;
@@ -48,21 +46,27 @@ function seleccionar(nivel) {
   flex-direction: column;
   align-items: center;
 
-  background: linear-gradient(
-    135deg,
-    #020617,
-    #041229,
-    #071b3c,
-    #0a234f
-  );
+  background: linear-gradient(135deg,
+      #020617,
+      #041229,
+      #071b3c,
+      #0a234f);
   background-size: 300% 300%;
   animation: gradientMove 12s ease infinite;
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
@@ -77,9 +81,17 @@ function seleccionar(nivel) {
 }
 
 @keyframes glowPulse {
-  0% { text-shadow: 0 0 15px #00ffe1; }
-  50% { text-shadow: 0 0 35px #00ffe1; }
-  100% { text-shadow: 0 0 15px #00ffe1; }
+  0% {
+    text-shadow: 0 0 15px #00ffe1;
+  }
+
+  50% {
+    text-shadow: 0 0 35px #00ffe1;
+  }
+
+  100% {
+    text-shadow: 0 0 15px #00ffe1;
+  }
 }
 
 
@@ -128,6 +140,7 @@ function seleccionar(nivel) {
 .facil {
   border-left: 6px solid #00ff88;
 }
+
 .facil:hover {
   box-shadow: 0 0 25px #00ff88;
 }
@@ -135,6 +148,7 @@ function seleccionar(nivel) {
 .medio {
   border-left: 6px solid #ffd700;
 }
+
 .medio:hover {
   box-shadow: 0 0 25px #ffd700;
 }
@@ -142,8 +156,8 @@ function seleccionar(nivel) {
 .dificil {
   border-left: 6px solid #ff1b4a;
 }
+
 .dificil:hover {
   box-shadow: 0 0 25px #ff1b4a;
 }
-
 </style>
