@@ -646,7 +646,7 @@ function intentar(letra) {
     podio.push(entrada);
     localStorage.setItem("podioAhorcado", JSON.stringify(podio));
 
-    setTimeout(() => router.push("/podio"), 800);
+    setTimeout(() => router.push("/podio"), 2500);
   }
 }
 
@@ -661,7 +661,7 @@ watch(
     if (!seleccionarPalabraSegura()) return;
 
     clearInterval(intervalo);
-    intervalo = setInterval(() => (tiempo.value += 1), 1000);
+    intervalo = setInterval(() => (tiempo.value += 1), 3000);
   },
   { immediate: true }
 );
