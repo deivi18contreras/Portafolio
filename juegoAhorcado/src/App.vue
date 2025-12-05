@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <q-scroll-area class="fit q-pa-sm">
+        <q-scroll-area class="fit q-git pa-sm">
 
           <q-btn class="menu-btn" label="Inicio" to="/" />
           <q-btn class="menu-btn" label="Categoría" to="/categoria" />

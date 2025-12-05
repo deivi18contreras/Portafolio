@@ -11,7 +11,7 @@
 
     <div class="contenido">
 
-      <!-- ROBOT -->
+     
       <div class="robot">
         <img :src="base" class="parte base" />
         <img v-if="fallos >= 1" :src="cabeza" class="parte cabeza" />

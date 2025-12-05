@@ -6,7 +6,7 @@
       No hay puntajes aún 🤷‍♂️
     </div>
 
-    <!-- TOP 3 -->
+
     <div v-else class="podio">
       <div class="podio-puestos">
         <div class="puesto puesto-2" v-if="podio[1]">
@@ -42,12 +42,12 @@
       </div>
     </div>
 
-    <!-- Botón para mostrar más jugadores -->
+   
     <div v-if="otrosJugadores.length > 0" class="ver-mas-container">
       <Button label="Ver más puestos" color="#333" textColor="#fff" @accionBoton="mostrarMas = !mostrarMas" />
     </div>
 
-    <!-- Lista del resto de jugadores -->
+    
     <div v-if="mostrarMas" class="otros-container">
       <h2>Otros participantes</h2>
       <div class="lista-jugadores">
@@ -64,7 +64,6 @@
       </div>
     </div>
 
-    <!-- Botones finales -->
     <div class="botones-container">
       <Button label="Reiniciar Podio" color="#ff4466" textColor="#fff" @accionBoton="resetPodio" />
       <Button label="Volver al inicio" color="#00ffcc" textColor="#000" @accionBoton="irInicio" />
@@ -80,19 +79,19 @@ import Button from "../components/Button.vue"
 const mostrarMas = ref(false)
 const router = useRouter()
 
-// Nombre del jugador actual
+
 const jugador = localStorage.getItem("jugador") || "Jugador"
 
-// Computed que obtiene el podio completo y lo ordena por tiempo
+
 const podio = computed(() => {
   const datos = JSON.parse(localStorage.getItem("podioAhorcado") || "[]")
   return datos.sort((a, b) => a.tiempo - b.tiempo)
 })
 
-// Los demás jugadores (del 4 en adelante)
+
 const otrosJugadores = computed(() => podio.value.slice(3))
 
-// Reiniciar podio
+
 const resetPodio = () => {
   if (confirm("¿Estás seguro de que quieres borrar todos los puntajes?")) {
     localStorage.removeItem("podioAhorcado")
@@ -100,7 +99,7 @@ const resetPodio = () => {
   }
 }
 
-// Volver al inicio usando router
+
 const irInicio = () => {
   router.push("/categoria")
 }
@@ -109,7 +108,7 @@ const irInicio = () => {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 
-/* --- ESTILOS BASE MEJORADOS --- */
+
 
 .podio-container {
   text-align: center;
@@ -332,7 +331,7 @@ const irInicio = () => {
   z-index: 2;
 }
 
-/* --- RESPONSIVIDAD ORIGINAL --- */
+
 
 @media (max-width: 768px) {
   .podio {
@@ -377,7 +376,7 @@ const irInicio = () => {
   }
 }
 
-/* --- ANIMACIÓN GLITCH PARA MÓVIL (ORIGINAL) --- */
+
 @keyframes glitch {
   0% {
     text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
