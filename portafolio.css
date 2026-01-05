@@ -161,7 +161,7 @@ body {
 .Perfil {
   width: 220px;
   height: 220px;
-  background: url('./avatar.jpg') center/cover no-repeat;
+  background: url('./wimagenes/avatar.jpg') center/cover no-repeat;
   border-radius: 50%;
   border: 3px solid #00ff88;
   box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);

@@ -48,7 +48,7 @@ const asistencias = ref([]);
 
 let stream = null;
 
-/* =============== CARGAR HISTORIAL ================== */
+
 onMounted(() => {
     const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
     if (!usuario) return;
@@ -59,14 +59,14 @@ onMounted(() => {
     cargarModelos();
 });
 
-/* =============== CARGAR MODELOS FACE ID ================== */
+
 async function cargarModelos() {
     await faceapi.nets.ssdMobilenetv1.loadFromUri("/models");
     await faceapi.nets.faceLandmark68Net.loadFromUri("/models");
     await faceapi.nets.faceRecognitionNet.loadFromUri("/models");
 }
 
-/* =============== INICIAR FACE ID ================== */
+
 async function iniciarFaceID() {
     mensaje.value = "";
     error.value = "";
@@ -76,14 +76,14 @@ async function iniciarFaceID() {
     setTimeout(() => validarFaceID(), 2500);
 }
 
-/* =============== INICIAR CÁMARA ================== */
+
 async function iniciarCamara() {
     stream = await navigator.mediaDevices.getUserMedia({ video: true });
     videoRef.value.srcObject = stream;
     videoRef.value.style.display = "block";
 }
 
-/* =============== DETENER CÁMARA ================== */
+
 function detenerCamara() {
     if (stream) {
         stream.getTracks().forEach(t => t.stop());
@@ -91,7 +91,7 @@ function detenerCamara() {
     videoRef.value.style.display = "none";
 }
 
-/* =============== VALIDAR FACE ID ================== */
+
 async function validarFaceID() {
     const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
 
@@ -129,7 +129,7 @@ async function validarFaceID() {
     detenerCamara();
 }
 
-/* =============== GUARDAR ASISTENCIA ================== */
+
 function marcarAsistencia() {
     const usuario = JSON.parse(localStorage.getItem("usuarioActual"));
     const clave = "asistencias_" + usuario.email;
@@ -153,7 +153,7 @@ function marcarAsistencia() {
         icon: "check",
     });
 
-    // *** Cerrar sesión automático ***
+   
     localStorage.removeItem("usuarioActual");
 
     setTimeout(() => {

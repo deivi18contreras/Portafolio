@@ -1,10 +1,6 @@
 <template>
-  <q-btn
-    :color="props.color"
-    :text-color="props.textColor"
-    :label="props.label"
-    :type="props.type"         
-    @click="emit('accionBoton')" ></q-btn>
+  <q-btn :color="props.color" :text-color="props.textColor" :label="props.label" :type="props.type"
+    @click="emit('accionBoton')"></q-btn>
 </template>
 
 <script setup>
@@ -27,7 +23,7 @@ const props = defineProps({
   },
   type: {
     type: String,
-    default: "button" 
+    default: "button"
   }
 });
 </script>
