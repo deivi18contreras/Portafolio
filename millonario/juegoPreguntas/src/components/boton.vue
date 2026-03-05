@@ -1,35 +1,24 @@
 <template>
-    <div>
-        <q-btn :color="props.color" :text-color="props.textColor" :label="props.label" :disabled="props.disabled"
-            @click="accion" />
-    </div>
+<q-btn @click="presionar" :color="color", :label="label" ></q-btn>
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from "vue";
-
-const emit = defineEmits(["accionBoton"]);
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
-    color: {
+    color:{
         type: String,
-        default: "blue",
+        required: true
     },
-    textColor: {
+    label:{
         type: String,
-        default: "black",
+        required: true
     },
-    label: {
-        type: String,
-        required: true,
-    },
-    disabled: {
-        type: Boolean,
-        default: false,
-    },
+
 });
 
-function accion() {
-    emit("accionBoton");
+const emits = defineEmits(['seleccionar'])
+const presionar = () => {
+    emits('seleccionar')
 }
 </script>
