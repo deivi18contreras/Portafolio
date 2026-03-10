@@ -118,12 +118,16 @@ const login = async () => {
     }
 
   } catch (error) {
-    console.log(error.response);
-    const mensajeError = error.response?.data?.msg || error.response.data.errors[0].msg ;
-    errorAlert(mensajeError)
+  console.log(error.response);
 
+  const mensajeError =
+    error?.response?.data?.errors?.[0]?.msg ||
+    error?.response?.data?.mensaje ||
+    error?.response?.data?.msg ||
+    "Error al iniciar sesión";
 
-  } finally {
+  errorAlert(mensajeError);
+} finally {
     loading.value = false
   }
 };
