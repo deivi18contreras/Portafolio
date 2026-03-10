@@ -1,10 +1,10 @@
-import axios from 'axios';
-import { useAuthStore } from '../store/Auth.js';
+import axios from "axios";
+import { useAuthStore } from "../store/Auth.js";
 
 const axiosInstance = axios.create({
-  baseURL: 'https://backend-production-4304.up.railway.app/api',
+  baseURL: "https://adventurous-mindfulness-production-4a69.up.railway.app/api",
   headers: {
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json"
   }
 });
 
@@ -14,7 +14,7 @@ axiosInstance.interceptors.request.use(
     const token = authStore.token;
 
     if (token) {
-      config.headers['x-token'] = token;
+      config.headers["x-token"] = token;
     }
 
     return config;
