@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAuthStore } from "../store/Auth.js";
 
 const axiosInstance = axios.create({
-  baseURL: "https://adventurous-mindfulness-production-4a69.up.railway.app/api",
+  baseURL: "https://adventurous-mindfulness-production-4a69.up.railway.app/api/login",
   headers: {
     "Content-Type": "application/json"
   }
