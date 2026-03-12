@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAuthStore } from "../store/Auth.js";
 
 const axiosInstance = axios.create({
-  baseURL: "https://backend-2-6hda.onrender.com/api",
+  baseURL: "https://numerologiamongobd.onrender.com/api",
   headers: {
     "Content-Type": "application/json"
   }
