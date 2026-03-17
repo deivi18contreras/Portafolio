@@ -5,7 +5,7 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 
 export default defineConfig({
   // CRÍTICO: Indica que la app vive en esta subcarpeta
-  base: '/numerologia/', 
+  base: './', 
 
   plugins: [
     vue({
