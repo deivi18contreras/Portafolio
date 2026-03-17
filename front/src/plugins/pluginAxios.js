@@ -2,10 +2,10 @@ import axios from "axios";
 import { useAuthStore } from "../store/Auth.js";
 
 const axiosInstance = axios.create({
-  baseURL: "https://numerologiamongobd.onrender.com/api",
-  headers: {
-    "Content-Type": "application/json"
-  }
+  baseURL: "http://localhost:3000/api/",
+  headers:{
+  "Content-Type": "application/json"
+}
 });
 
 axiosInstance.interceptors.request.use(
