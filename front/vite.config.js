@@ -4,14 +4,13 @@ import vue from '@vitejs/plugin-vue'
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 
 export default defineConfig({
-
-
+  // CRÍTICO: Indica que la app vive en esta subcarpeta
+  base: '/numerologia/', 
 
   plugins: [
     vue({
       template: { transformAssetUrls }
     }),
-
     quasar({
       sassVariables: fileURLToPath(
         new URL('./src/quasar-variables.sass', import.meta.url)
@@ -20,7 +19,8 @@ export default defineConfig({
   ],
 
   build: {
-    outDir: '../docs/numerologia'
+    
+    outDir: '../docs/numerologia',
+    emptyOutDir: true 
   }
-
 })
