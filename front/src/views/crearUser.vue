@@ -43,7 +43,7 @@
 
             <q-card-section>
 
-              <q-input filled v-model="username" label="Username" dark class="q-mb-md">
+              <q-input filled v-model="username" label="Nombre Usuario" dark class="q-mb-md">
                 <template v-slot:prepend>
                   <q-icon name="person" />
                 </template>
@@ -55,11 +55,16 @@
                 </template>
               </q-input>
 
-              <q-input filled v-model="password" label="Password" type="password" dark class="q-mb-md">
-                <template v-slot:prepend>
-                  <q-icon name="key" />
-                </template>
-              </q-input>
+              <q-input filled v-model="password" :type="showPassword ? 'text' : 'password'" label="Contraseña" dark class="q-mb-md">
+              <template v-slot:prepend>
+                <q-icon name="key" />
+              </template>
+
+              <template v-slot:append>
+                <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer"
+                  @click="showPassword = !showPassword" />
+              </template>
+            </q-input>
 
               <q-input filled v-model="fechaNacimiento" label="Fecha de Nacimiento" type="date" dark>
                 <template v-slot:prepend>
@@ -70,8 +75,8 @@
             </q-card-section>
 
             <q-card-actions>
-              <q-btn label="Crear Cuenta" class="gold-button full-width" :loading="loading"  @click="crearUsuario()" />
-              <p class="texto">Ya tienes una cuenta?  <a href="./loginUsers.vue">Iniciar Sesión</a></p>
+              <q-btn label="Crear Cuenta" class="gold-button full-width" :loading="loading" @click="crearUsuario()" />
+              <p class="texto">Ya tienes una cuenta? <a href="./loginUsers.vue">Iniciar Sesión</a></p>
             </q-card-actions>
 
           </q-card>
@@ -95,20 +100,21 @@ import { useRouter } from "vue-router";
 import { postData } from "../services/services";
 import { useNotifications } from "../composables/useNotifications";
 
-const {success, errorAlert} = useNotifications()
+const { success, errorAlert } = useNotifications()
 
 const router = useRouter();
 
 const username = ref("");
 const email = ref("");
 const password = ref("");
+const showPassword = ref(false);
 const fechaNacimiento = ref("");
 const loading = ref(false)
 
-const crearUsuario = async () =>{
-if(!username.value || !email.value || !password || !fechaNacimiento){
-  errorAlert("Por favor, rellene todos los campos", "Para crear la cuenta")
-}
+const crearUsuario = async () => {
+  if (!username.value || !email.value || !password || !fechaNacimiento) {
+    errorAlert("Por favor, rellene todos los campos", "Para crear la cuenta")
+  }
   loading.value = true
   try {
     const Usuario = await postData("usuario", {
@@ -116,19 +122,18 @@ if(!username.value || !email.value || !password || !fechaNacimiento){
       email: email.value,
       fechaNacimiento: fechaNacimiento.value,
       password: password.value,
-      rol:"user"
+      rol: "user"
     })
     if (Usuario) {
       success("Bienvenido a su linea de vida")
       router.push("/")
-      
     }
-    
+
   } catch (error) {
     console.log(error.response);
-    
+
     errorAlert(error.response.data.msg || error.response.data.errors[0].msg)
-  } finally{
+  } finally {
     loading.value = false
   }
 }
@@ -249,7 +254,7 @@ if(!username.value || !email.value || !password || !fechaNacimiento){
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 30px;
 }
 
 .form-wrapper {
@@ -317,7 +322,7 @@ if(!username.value || !email.value || !password || !fechaNacimiento){
   text-align: center;
 }
 
-.texto{
+.texto {
   margin-left: 20%;
   margin-top: 15px;
 }

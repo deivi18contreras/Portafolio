@@ -33,23 +33,37 @@
         <q-card class="glass-container">
 
           <q-card-section class="text-center">
-            <div class="text-h5">Authentication</div>
-            <div class="subtitle">Secure Entry Required</div>
+            <div class="text-h5">Autenticación</div>
+            <div class="subtitle">Acceso seguro obligatorio</div>
           </q-card-section>
 
           <q-card-section>
 
-            <q-input filled v-model="usuario" label="Email" dark class="q-mb-md">
+            <q-input filled v-model.trim="usuario" label="Email" dark class="q-mb-md" autocomplete="email">
               <template v-slot:prepend>
                 <q-icon name="alternate_email" />
               </template>
             </q-input>
 
-            <q-input filled v-model="password" label="Secret Key" type="password" dark>
+            <q-field filled label="Contraseña" dark stack-label class="q-mb-md">
               <template v-slot:prepend>
                 <q-icon name="lock_open" />
               </template>
-            </q-input>
+              <template v-slot:control>
+                <input 
+                  :type="showPassword ? 'text' : 'password'" 
+                  class="q-field__input" 
+                  :value="password" 
+                  @input="e => password = e.target.value"
+                  autocomplete="current-password"
+                  style="background: transparent; border: none; color: white; outline: none; width: 100%;"
+                >
+              </template>
+              <template v-slot:append>
+                <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer"
+                  @click="showPassword = !showPassword" />
+              </template>
+            </q-field>
 
           </q-card-section>
 
@@ -81,6 +95,7 @@ import { useQuasar } from "quasar";
 
 const usuario = ref("");
 const password = ref("");
+const showPassword = ref(false);  
 const loading = ref(false)
 const $q = useQuasar();
 
@@ -102,14 +117,14 @@ const login = async () => {
       password: password.value,
     });
 
-    authStore.token = res.data.token;
-    authStore.usuario = res.data.usuario;
-    authStore.rol = res.data.usuario.rol;
+    authStore.token = res.token;
+    authStore.usuario = res.usuario;
+    authStore.rol = res.usuario.rol;
     authStore.sessionStart = new Date().toISOString();
-    
-    success(`Bienvenido, ${res.data.usuario.nombre || 'user'}!`, "login success")
 
-    const rol = res.data.usuario.rol;
+    success(`Bienvenido, ${res.usuario.nombre || 'user'}!`, "login success")
+
+    const rol = res.usuario.rol;
 
     if (rol === "admin") {
       router.push("/admin");
@@ -118,16 +133,16 @@ const login = async () => {
     }
 
   } catch (error) {
-  console.log(error.response);
+    console.log(error.response);
 
-  const mensajeError =
-    error?.response?.data?.errors?.[0]?.msg ||
-    error?.response?.data?.mensaje ||
-    error?.response?.data?.msg ||
-    "Error al iniciar sesión";
+    const mensajeError =
+      error?.response?.data?.errors?.[0]?.msg ||
+      error?.response?.data?.mensaje ||
+      error?.response?.data?.msg ||
+      "Error al iniciar sesión";
 
-  errorAlert(mensajeError);
-} finally {
+    errorAlert(mensajeError);
+  } finally {
     loading.value = false
   }
 };
@@ -137,7 +152,7 @@ const creacionUsuarios = () => {
 };
 
 
-const recuperarPassword = () =>{
+const recuperarPassword = () => {
   $q.dialog({
     title: 'Recuperar Contraseña',
     message: 'Escribe tu correo electrónico y te enviaremos instrucciones.',
@@ -150,19 +165,21 @@ const recuperarPassword = () =>{
     },
     cancel: true,
     persistent: true
-  }).onOk(async(emailSolicitado) =>{
+  }).onOk(async (emailSolicitado) => {
 
     loading.value = true;
 
     try {
-     const res = await postData("usuario/forgot-password", {email: emailSolicitado});
-     success("Código enviado", res.data.mensaje);
-     pedirNuevoPassword();
-     
+      const res = await postData("usuario/forgot-password", { email: emailSolicitado });
+      success("Código enviado", res.mensaje || "Revisa tu correo");
+      pedirNuevoPassword();
+
     } catch (error) {
-      const mensaje = error.response?.data?.msg || "Error al solicitar recuperación";
+      const mensaje = error.response?.data?.mensaje || error.response?.data?.msg || "Error al solicitar recuperación";
       errorAlert("Error", mensaje);
-    }loading.value = false;
+    } finally {
+      loading.value = false;
+    }
   })
 }
 
@@ -176,13 +193,13 @@ const pedirNuevoPassword = () => {
       type: 'text',
       label: 'Código de 6 dígitos',
       filled: true,
-      mask: '######' 
+      mask: '######'
     },
     cancel: true,
     persistent: true
   }).onOk(async (codigoRecibido) => {
-    
-  
+
+
     $q.dialog({
       title: 'Nueva Clave',
       message: 'Escribe tu nueva contraseña (mínimo 8 caracteres):',
@@ -197,9 +214,9 @@ const pedirNuevoPassword = () => {
     }).onOk(async (newPassword) => {
       loading.value = true;
       try {
-        
-        await postData("usuario/reset-password", { 
-          token: codigoRecibido, 
+
+        await postData("usuario/reset-password", {
+          token: codigoRecibido,
           newPassword: newPassword
         });
 

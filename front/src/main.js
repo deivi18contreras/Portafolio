@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import {Quasar, Notify, Dialog, Loading} from 'quasar'
+import {Quasar, Notify, Dialog, Loading, Dark} from 'quasar'
 import { createPinia } from 'pinia'
 import '@quasar/extras/material-icons/material-icons.css'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
@@ -20,6 +20,7 @@ myApp.use(Quasar,{
         Loading
     },
 })
+Dark.set(true)
 myApp.use(pinia)
 myApp.use(router)
 myApp.mount('#app')

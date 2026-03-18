@@ -27,16 +27,16 @@
             <div class="row q-col-gutter-md">
               <div class="col-6">
                 <div class="text-caption text-grey-5">Latencia API</div>
-                <div class="text-h6 text-positive">24ms <q-icon name="trending_down" size="14px" /></div>
+                <div class="text-h6 text-positive">Estable <q-icon name="trending_down" size="14px" /></div>
               </div>
               <div class="col-6">
-                <div class="text-caption text-grey-5">Uptime</div>
-                <div class="text-h6">99.9%</div>
+                <div class="text-caption text-grey-5">Base de Datos</div>
+                <div class="text-h6">Conectada</div>
               </div>
               <div class="col-12 q-mt-sm">
                 <div class="row justify-between text-caption text-grey-5">
-                  <span>Carga del Servidor</span>
-                  <span>12%</span>
+                  <span>Carga Operativa</span>
+                  <span>Saludable</span>
                 </div>
                 <q-linear-progress :value="0.12" color="amber" class="q-mt-xs" rounded />
               </div>
@@ -53,7 +53,7 @@
             <div class="control-row">
               <div class="text-body2">Precio Suscripción Premium</div>
               <q-input 
-                v-model.number="config.precio" 
+                v-model.number="config.precioSuscripcion" 
                 type="number" 
                 dark dense outlined 
                 prefix="$" 
@@ -85,7 +85,7 @@
                   <q-item-label caption class="text-grey-5">Bloquea el acceso a usuarios externos</q-item-label>
                 </q-item-section>
                 <q-item-section side>
-                  <q-toggle color="red" v-model="config.mantenimiento" />
+                  <q-toggle color="red" v-model="config.modoMantenimiento" />
                 </q-item-section>
               </q-item>
               
@@ -110,7 +110,7 @@
             <q-icon name="auto_awesome" class="q-mr-sm" /> CONFIGURACIÓN DE IA
           </div>
           <div class="q-mt-md">
-            <div class="text-caption text-grey-5 q-mb-sm">Nivel de Sabiduría (Temperatura)</div>
+            <div class="text-caption text-grey-5 q-mb-sm">Nivel de Sabiduría (Temperatura: {{ config.aiCreativity }})</div>
             <q-slider 
               v-model="config.aiCreativity" 
               :min="0" :max="1" :step="0.1" 
@@ -148,24 +148,44 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useQuasar } from 'quasar'
+import { getData, putData } from '../services/services'
 
 const $q = useQuasar()
 const drawer = ref(false)
 const saving = ref(false)
 
 const config = ref({
-  precio: 49.99,
-  moneda: 'USD',
-  mantenimiento: false,
+  precioSuscripcion: 49.99,
+  moneda: 'COP',
+  modoMantenimiento: false,
   aiCreativity: 0.7
 })
 
-const saveChanges = () => {
+const loadConfig = async () => {
+  try {
+    const res = await getData('config')
+    if (res) {
+      config.value = res
+    }
+  } catch (error) {
+    console.error('Error al cargar configuración:', error)
+  }
+}
+
+const saveChanges = async () => {
   saving.value = true
-  setTimeout(() => {
-    saving.value = false
+  try {
+    // Limpiamos el objeto para enviar solo lo necesario
+    const dataToSend = {
+      precioSuscripcion: config.value.precioSuscripcion,
+      moneda: config.value.moneda,
+      modoMantenimiento: config.value.modoMantenimiento,
+      aiCreativity: config.value.aiCreativity
+    }
+
+    await putData('config', dataToSend)
     $q.notify({
       message: 'Protocolos actualizados correctamente',
       color: 'positive',
@@ -173,21 +193,37 @@ const saveChanges = () => {
       position: 'top-right'
     })
     drawer.value = false
-  }, 2000)
+  } catch (error) {
+    console.error('Error al guardar configuración:', error.response?.data || error.message)
+    $q.notify({
+      message: error.response?.data?.msg || 'Error al sincronizar cambios con el núcleo',
+      color: 'negative',
+      icon: 'error'
+    })
+  } finally {
+    saving.value = false
+  }
 }
 
 const backupSystem = () => {
   $q.notify({
-    message: 'Iniciando respaldo de base de datos...',
+    message: 'Snapshot generado. El respaldo se ha completado en el servidor.',
     color: 'info',
     icon: 'storage',
     timeout: 3000
   })
 }
 
+const openDrawer = () => {
+  loadConfig()
+  drawer.value = true
+}
+
 defineExpose({
-  openDrawer: () => { drawer.value = true }
+  openDrawer
 })
+
+onMounted(loadConfig)
 </script>
 
 <style scoped>

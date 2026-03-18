@@ -2,10 +2,11 @@ import axios from "axios";
 import { useAuthStore } from "../store/Auth.js";
 
 const axiosInstance = axios.create({
-  baseURL: "https://numerologiamongobd-1.onrender.com/api/",
-  headers:{
-  "Content-Type": "application/json"
-}
+
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api",
+  headers: {
+    "Content-Type": "application/json"
+  }
 });
 
 axiosInstance.interceptors.request.use(
@@ -13,6 +14,7 @@ axiosInstance.interceptors.request.use(
     const authStore = useAuthStore();
     const token = authStore.token;
 
+   
     if (token) {
       config.headers["x-token"] = token;
     }

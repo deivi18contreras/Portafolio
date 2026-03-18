@@ -18,7 +18,7 @@ export const getData = async (url, params = {}) => {
  */
 export const postData = async (url, data) => {
   const response = await axiosInstance.post(url, data);
-  return response;
+  return response.data;
 };
 
 /**

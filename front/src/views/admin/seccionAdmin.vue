@@ -15,11 +15,7 @@
             </div>
 
             <div class="actions">
-              <q-btn 
-                round flat 
-                :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'" 
-                @click="$q.dark.toggle()" 
-              />
+              <q-btn round flat :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'" @click="$q.dark.toggle()" />
               <!-- NOTIFICACIONES CON BADGE -->
               <q-btn round flat icon="notifications" @click="notifRef.openDrawer()">
                 <q-badge floating color="red" rounded v-if="authStore.unreadCount > 0">
@@ -34,51 +30,14 @@
               </q-avatar>
             </div>
           </div>
-          <!-- ... (resto de la cabecera) -->
-          <div class="row q-col-gutter-sm items-center">
-            <div class="col">
-              <q-input
-                filled
-                dark
-                dense
-                v-model="busquedaGlobal"
-                placeholder="Buscar usuarios, pagos o registros..."
-                @keyup.enter="ejecutarBusqueda"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="search" />
-                </template>
-              </q-input>
-            </div>
-            <div class="col-auto">
-              <q-btn round flat icon="refresh" color="amber" @click="recargarDatos">
-                <q-tooltip>Sincronizar Datos</q-tooltip>
-              </q-btn>
-            </div>
-          </div>
 
           <div class="nav-tabs">
-            <q-btn 
-              flat 
-              icon="auto_awesome" 
-              label="Dashboard" 
-              :class="{ 'active-tab': currentRoute === '/admin' }"
-              @click="irDashboard" 
-            />
-            <q-btn 
-              flat 
-              icon="people" 
-              label="Usuarios" 
-              :class="{ 'active-tab': currentRoute === '/admin/usuarios' }"
-              @click="irUsuarios" 
-            />
-            <q-btn 
-              flat 
-              icon="payments" 
-              label="Pagos" 
-              :class="{ 'active-tab': currentRoute === '/admin/pagos' }"
-              @click="irPagos" 
-            />
+            <q-btn flat icon="auto_awesome" label="Dashboard" :class="{ 'active-tab': currentRoute === '/admin' }"
+              @click="irDashboard" />
+            <q-btn flat icon="people" label="Usuarios" :class="{ 'active-tab': currentRoute === '/admin/usuarios' }"
+              @click="irUsuarios" />
+            <q-btn flat icon="payments" label="Pagos" :class="{ 'active-tab': currentRoute === '/admin/pagos' }"
+              @click="irPagos" />
           </div>
         </div>
 
@@ -116,11 +75,14 @@ const notifRef = ref(null)
 const configRef = ref(null)
 const busquedaGlobal = ref("")
 
+
+
+
 const currentRoute = computed(() => route.path)
 const fechaActual = computed(() => {
-  return new Date().toLocaleDateString('es-ES', { 
-    hour: '2-digit', 
-    minute: '2-digit' 
+  return new Date().toLocaleDateString('es-ES', {
+    hour: '2-digit',
+    minute: '2-digit'
   })
 })
 
@@ -147,12 +109,23 @@ function recargarDatos() {
 }
 
 function ejecutarBusqueda() {
-  if (!busquedaGlobal.value) return
+  const texto = busquedaGlobal.value.toLowerCase().trim()
+
+  if (!texto) return
+
+  // 🔔 Notificación
   $q.notify({
     message: `Buscando: ${busquedaGlobal.value}`,
     color: 'secondary'
   })
+
+  // 🔍 FILTRAR DATOS
+ router.push({
+    path: route.path,
+    query: { q: texto }
+  })
 }
+
 </script>
 
 <style scoped>

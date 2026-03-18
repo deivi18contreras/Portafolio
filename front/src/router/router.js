@@ -8,12 +8,26 @@ const routes = [
     children: [
       { path: "", component: () => import("../views/loginUsers.vue") },
       { path: "crear-user", component: () => import("../views/crearUser.vue") },
-      { path: "seccionUser", component: () => import("../views/user/seccionUser.vue") }
-      // ❌ Eliminé "seccionAdmin" de aquí. Ya no es hijo de MainLayout.
+      { path: "seccionUser", component: () => import("../views/user/seccionUser.vue") },
+      { path: "user-pro", component: () => import("../views/user/seccionUser_PROTOTIPO.vue") }
     ]
   },
 
-  // 2. RUTAS DE ADMINISTRADOR (Aquí seccionAdmin.vue es el Layout principal)
+  // 2. RUTAS DE USUARIO (Nuevo Layout y Vistas)
+  {
+    path: "/user",
+    component: () => import("../layouts/UserLayout.vue"),
+    children: [
+      { path: "dashboard", component: () => import("../views/user/UserDashboard.vue") },
+      { path: "oracle", component: () => import("../views/user/UserOracle.vue") },
+      { path: "vault", component: () => import("../views/user/UserVault.vue") },
+      { path: "seals", component: () => import("../views/user/UserSeals.vue") },
+      { path: "payments", component: () => import("../views/user/UserPayments.vue") },
+      { path: "premium", component: () => import("../views/user/seccionUser_PROTOTIPO.vue") }
+    ]
+  },
+
+  // 3. RUTAS DE ADMINISTRADOR
   {
     path: "/admin",
     component: () => import("../views/admin/seccionAdmin.vue"),
